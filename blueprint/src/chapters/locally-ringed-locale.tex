@@ -5,7 +5,7 @@
 \begin{definition}[Locally Ringed Locale]
   \label{def:locally-ringed-locale}
   \uses{def:locale, def:sheaf-locale}
-  \lean{LocallyRingedLocale}
+  \lean{}
   A \emph{locally ringed locale} is a pair $(X, \mathcal{O}_X)$ where:
   \begin{enumerate}
     \item $X$ is a locale (a frame)
@@ -17,7 +17,7 @@
 \begin{definition}[Stalk in a Locale]
   \label{def:stalk-locale}
   \uses{def:sheaf-locale}
-  \lean{Sheaf.stalk}
+  \lean{}
   For a sheaf $\mathcal{F}$ on a locale $X$ and an element $u \in X$, the \emph{stalk} is defined as:
   $$\mathcal{F}_{\bar{u}} := \lim_{v \in \downarrow u} \mathcal{F}(v)$$
   where $\downarrow u := \{v \in X : v \leq u\}$ is the principal order filter at $u$.
@@ -35,7 +35,7 @@
 \begin{definition}[Affine Scheme]
   \label{def:affine-scheme}
   \uses{def:locally-ringed-locale, def:structure-sheaf-zariski, thm:structure-sheaf-property}
-  \lean{AffineScheme}
+  \lean{}
   An \emph{affine scheme} is a locally ringed locale of the form $(\mathrm{Spec} R, \mathcal{O}_{\mathrm{Spec} R})$ 
   for some commutative ring $R$, where:
   \begin{enumerate}
@@ -47,7 +47,7 @@
 \begin{theorem}[Affine Schemes are Locally Ringed]
   \label{thm:affine-scheme-locally-ringed}
   \uses{def:affine-scheme, def:locally-ringed-locale, thm:structure-sheaf-property}
-  \lean{AffineScheme.locallyRinged}
+  \lean{}
   Every affine scheme $(\mathrm{Spec} R, \mathcal{O}_{\mathrm{Spec} R})$ is a locally ringed locale.
 \end{theorem}
 
@@ -67,7 +67,7 @@
 \begin{definition}[Morphism of Affine Schemes]
   \label{def:morphism-affine-schemes}
   \uses{def:affine-scheme}
-  \lean{AffineScheme.Hom}
+  \lean{}
   A morphism of affine schemes from $\mathrm{Spec} R$ to $\mathrm{Spec} S$ is a morphism of locally ringed locales, 
   i.e., a pair $(f_{\#}, f^{\sharp})$ where:
   \begin{enumerate}
@@ -79,7 +79,7 @@
 \begin{theorem}[Ring Homomorphisms Induce Scheme Morphisms]
   \label{thm:ring-hom-to-scheme-morphism}
   \uses{def:morphism-affine-schemes, thm:functoriality-spec}
-  \lean{AffineScheme.of_ringHom}
+  \lean{}
   Every ring homomorphism $\phi: S \to R$ induces a morphism of affine schemes:
   $$\mathrm{Spec} \phi: \mathrm{Spec} R \to \mathrm{Spec} S$$
 \end{theorem}
@@ -96,7 +96,7 @@
 \begin{definition}[Scheme (Pointfree)]
   \label{def:scheme-pointfree}
   \uses{def:locally-ringed-locale, def:affine-scheme}
-  \lean{Scheme}
+  \lean{}
   A \emph{scheme} is a locally ringed locale $(X, \mathcal{O}_X)$ such that $X$ has an open cover 
   $\{u_i : i \in I\}$ (where $\bigvee_i u_i = \top$) with the property that:
   \begin{enumerate}
@@ -115,7 +115,7 @@
 \begin{theorem}[Universal Property of Schemes]
   \label{thm:universal-property-schemes}
   \uses{def:scheme-pointfree, def:morphism-affine-schemes}
-  \lean{Scheme.universal_property}
+  \lean{}
   Schemes form a category with morphisms being locale morphisms respecting the ringed structure. 
   Affine schemes are the full subcategory of schemes admitting a single affine open cover.
 \end{theorem}
