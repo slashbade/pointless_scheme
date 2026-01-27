@@ -75,13 +75,14 @@
       Corollary
       </span>
       <span class="corollary_thmlabel">12</span><span class="corollary_thmtitle">Arbitrary Intersections are Radical</span></div>
-    <div class="thm_thmcontent"><p>    If \((I_i)_{i \in I}\) is a family of radical ideals, then \(\bigcap _{i \in I} I_i\) is radical. </p>
+    <div class="thm_thmcontent">
+<p>If \((I_i)_{i \in I}\) is a family of radical ideals, then \(\bigcap _{i \in I} I_i\) is radical. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#cor:arbitrary-intersection-radical">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/IsRadical.sInf">Lean</a>
+  
     
     
   
@@ -135,13 +136,14 @@
       Corollary
       </span>
       <span class="corollary_thmlabel">17</span><span class="corollary_thmtitle">Radical Ideals Form a Frame</span></div>
-    <div class="thm_thmcontent"><p>    The structure \(\mathrm{Rad}(R)\) is a frame. </p>
+    <div class="thm_thmcontent">
+<p>The structure \(\mathrm{Rad}(R)\) is a frame. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#cor:radical-frame">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.instFrame">Lean</a>
+  
     
     
   
@@ -165,7 +167,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">46</span><span class="definition_thmtitle">Affine Scheme</span></div>
-    <div class="thm_thmcontent"><p>    An <em>affine scheme</em> is a locally ringed locale of the form \((\mathrm{Spec} R, \mathcal{O}_{\mathrm{Spec} R})\) for some commutative ring \(R\), where: </p>
+    <div class="thm_thmcontent">
+<p>An <em>affine scheme</em> is a locally ringed locale of the form \((\mathrm{Spec} R, \mathcal{O}_{\mathrm{Spec} R})\) for some commutative ring \(R\), where: </p>
 <ol class="enumerate">
   <li><p>\(\mathrm{Spec} R = \mathrm{Rad}(R)\) is the Zariski locale </p>
 </li>
@@ -177,7 +180,7 @@
     <a class="latex_link" href="sect0005.html#def:affine-scheme">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/AffineScheme">Lean</a>
+  
     
     
   
@@ -201,7 +204,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">18</span><span class="definition_thmtitle">Basic Open Sets</span></div>
-    <div class="thm_thmcontent"><p>    For \(f \in R\), define the <em>basic open set</em> (in the Zariski locale): </p>
+    <div class="thm_thmcontent">
+<p>For \(f \in R\), define the <em>basic open set</em> (in the Zariski locale): </p>
 <div class="displaymath" id="a0000000043">
   \[ D(f) := \sqrt{(f)} \in \mathrm{Rad}(R) \]
 </div>
@@ -211,7 +215,7 @@
     <a class="latex_link" href="sect0002.html#def:basic-open-set">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.basicOpen">Lean</a>
+  
     
     
   
@@ -235,7 +239,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">54</span><span class="definition_thmtitle">Closed Sublocale</span></div>
-    <div class="thm_thmcontent"><p>    A closed sublocale of \(\mathrm{Spec} R\) corresponds to a radical ideal \(I \in \mathrm{Rad}(R)\) and is denoted \(V(I)\). The closed sublocale is: </p>
+    <div class="thm_thmcontent">
+<p>A closed sublocale of \(\mathrm{Spec} R\) corresponds to a radical ideal \(I \in \mathrm{Rad}(R)\) and is denoted \(V(I)\). The closed sublocale is: </p>
 <div class="displaymath" id="a0000000101">
   \[ V(I) := \{ J \in \mathrm{Rad}(R) : I \subseteq J\}  = \uparrow I \]
 </div>
@@ -245,7 +250,7 @@
     <a class="latex_link" href="sect0006.html#def:closed-sublocale">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/ClosedSublocale">Lean</a>
+  
     
     
   
@@ -339,7 +344,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">26</span><span class="definition_thmtitle">Induced Frame Homomorphism</span></div>
-    <div class="thm_thmcontent"><p>    For a ring homomorphism \(\phi : R \to S\), define: </p>
+    <div class="thm_thmcontent">
+<p>For a ring homomorphism \(\phi : R \to S\), define: </p>
 <div class="displaymath" id="a0000000057">
   \[ \phi ^*: \mathrm{Rad}(R) \to \mathrm{Rad}(S) \]
 </div>
@@ -353,7 +359,7 @@
     <a class="latex_link" href="sect0003.html#def:induced-frame-homomorphism">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.map">Lean</a>
+  
     
     
   
@@ -377,14 +383,15 @@
       Definition
       </span>
       <span class="definition_thmlabel">60</span><span class="definition_thmtitle">Irreducible Locale</span></div>
-    <div class="thm_thmcontent"><p>    A locale \(X\) is <em>irreducible</em> if the frame \(\mathcal{O}(X)\) has no non-trivial prime elements... wait, that doesn’t seem right. Let me reconsider. </p>
+    <div class="thm_thmcontent">
+<p>A locale \(X\) is <em>irreducible</em> if the frame \(\mathcal{O}(X)\) has no non-trivial prime elements... wait, that doesn’t seem right. Let me reconsider. </p>
 <p>Actually, a locale is irreducible if it is non-empty and is not the union of two proper closed sublocales. </p>
 </div>
 
     <a class="latex_link" href="sect0006.html#def:irreducible-locale">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Irreducible">Lean</a>
+  
     
     
   
@@ -408,13 +415,14 @@
       Definition
       </span>
       <span class="definition_thmlabel">61</span><span class="definition_thmtitle">Irreducible Scheme (Pointfree)</span></div>
-    <div class="thm_thmcontent"><p>    A scheme \(X\) is <em>irreducible</em> if its underlying locale is irreducible, i.e., the only way to write \(\top = u \lor v\) (where \(u, v\) are opens) is if \(u = \top \) or \(v = \top \). </p>
+    <div class="thm_thmcontent">
+<p>A scheme \(X\) is <em>irreducible</em> if its underlying locale is irreducible, i.e., the only way to write \(\top = u \lor v\) (where \(u, v\) are opens) is if \(u = \top \) or \(v = \top \). </p>
 </div>
 
     <a class="latex_link" href="sect0006.html#def:irreducible-scheme">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Scheme.Irreducible">Lean</a>
+  
     
     
   
@@ -474,7 +482,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">36</span><span class="definition_thmtitle">Localization of a Ring at an Element</span></div>
-    <div class="thm_thmcontent"><p>   For \(f \in R\), define \(R_f\) as the localization of \(R\) at the multiplicative set \(\{ 1, f, f^2, \ldots \} \): </p>
+    <div class="thm_thmcontent">
+<p>For \(f \in R\), define \(R_f\) as the localization of \(R\) at the multiplicative set \(\{ 1, f, f^2, \ldots \} \): </p>
 <div class="displaymath" id="a0000000080">
   \[ R_f := \{ r/f^k : r \in R, k \in \mathbb {N}\}  \]
 </div>
@@ -484,7 +493,7 @@
     <a class="latex_link" href="sect0004.html#def:localization-element">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Localization.Away">Lean</a>
+  
     
     
   
@@ -508,7 +517,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">43</span><span class="definition_thmtitle">Locally Ringed Locale</span></div>
-    <div class="thm_thmcontent"><p>    A <em>locally ringed locale</em> is a pair \((X, \mathcal{O}_X)\) where: </p>
+    <div class="thm_thmcontent">
+<p>A <em>locally ringed locale</em> is a pair \((X, \mathcal{O}_X)\) where: </p>
 <ol class="enumerate">
   <li><p>\(X\) is a locale (a frame) </p>
 </li>
@@ -522,7 +532,7 @@
     <a class="latex_link" href="sect0005.html#def:locally-ringed-locale">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/LocallyRingedLocale">Lean</a>
+  
     
     
   
@@ -546,7 +556,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">48</span><span class="definition_thmtitle">Morphism of Affine Schemes</span></div>
-    <div class="thm_thmcontent"><p>    A morphism of affine schemes from \(\mathrm{Spec} R\) to \(\mathrm{Spec} S\) is a morphism of locally ringed locales, i.e., a pair \((f_{\# }, f^{\sharp })\) where: </p>
+    <div class="thm_thmcontent">
+<p>A morphism of affine schemes from \(\mathrm{Spec} R\) to \(\mathrm{Spec} S\) is a morphism of locally ringed locales, i.e., a pair \((f_{\# }, f^{\sharp })\) where: </p>
 <ol class="enumerate">
   <li><p>\(f_{\# }: \mathrm{Spec} R \to \mathrm{Spec} S\) is a locale morphism (i.e., a frame homomorphism \(f_{\# }^*: \mathrm{Rad}(S) \to \mathrm{Rad}(R)\)) </p>
 </li>
@@ -558,7 +569,7 @@
     <a class="latex_link" href="sect0005.html#def:morphism-affine-schemes">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/AffineScheme.Hom">Lean</a>
+  
     
     
   
@@ -582,7 +593,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">53</span><span class="definition_thmtitle">Open Sublocale</span></div>
-    <div class="thm_thmcontent"><p>    An open sublocale of a locale \(X\) is determined by an open \(u \in X\). The frame of opens of the sublocale is: </p>
+    <div class="thm_thmcontent">
+<p>An open sublocale of a locale \(X\) is determined by an open \(u \in X\). The frame of opens of the sublocale is: </p>
 <div class="displaymath" id="a0000000100">
   \[ \mathcal{O}(u) := \{ v \in X : v \leq u\}  = \downarrow u \]
 </div>
@@ -592,7 +604,7 @@
     <a class="latex_link" href="sect0006.html#def:open-sublocale">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/OpenSublocale">Lean</a>
+  
     
     
   
@@ -616,7 +628,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">6</span><span class="definition_thmtitle">Presented Frame</span></div>
-    <div class="thm_thmcontent"><p>   A frame presented by a set of generators \(G\) and a set of relations \(R\) is denoted: </p>
+    <div class="thm_thmcontent">
+<p>A frame presented by a set of generators \(G\) and a set of relations \(R\) is denoted: </p>
 <div class="displaymath" id="a0000000013">
   \[ \mathrm{Fr}\langle G \mid R \rangle  \]
 </div>
@@ -626,7 +639,7 @@
     <a class="latex_link" href="sect0001.html#def:presented-frame">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Frame.Presented">Lean</a>
+  
     
     
   
@@ -650,13 +663,14 @@
       Definition
       </span>
       <span class="definition_thmlabel">56</span><span class="definition_thmtitle">Prime Element in a Frame</span></div>
-    <div class="thm_thmcontent"><p>    An element \(p\) of a frame \(L\) is <em>prime</em> if whenever \(p \leq a \lor b\), we have \(p \leq a\) or \(p \leq b\). </p>
+    <div class="thm_thmcontent">
+<p>An element \(p\) of a frame \(L\) is <em>prime</em> if whenever \(p \leq a \lor b\), we have \(p \leq a\) or \(p \leq b\). </p>
 </div>
 
     <a class="latex_link" href="sect0006.html#def:prime-frame-element">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/IsPrimeElement">Lean</a>
+  
     
     
   
@@ -680,14 +694,15 @@
       Definition
       </span>
       <span class="definition_thmlabel">57</span><span class="definition_thmtitle">Prime Ideal</span></div>
-    <div class="thm_thmcontent"><p>    An ideal \(\mathfrak {p} \in \mathrm{Rad}(R)\) is <em>prime</em> if it is a prime element in the frame \(\mathrm{Rad}(R)\). </p>
+    <div class="thm_thmcontent">
+<p>An ideal \(\mathfrak {p} \in \mathrm{Rad}(R)\) is <em>prime</em> if it is a prime element in the frame \(\mathrm{Rad}(R)\). </p>
 <p>Equivalently: \(\mathfrak {p}\) is prime if \(\mathfrak {p} \neq R\) and whenever \(fg \in \mathfrak {p}\), we have \(f \in \mathfrak {p}\) or \(g \in \mathfrak {p}\). </p>
 </div>
 
     <a class="latex_link" href="sect0006.html#def:prime-ideal">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Ideal.Prime">Lean</a>
+  
     
     
   
@@ -711,7 +726,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">25</span><span class="definition_thmtitle">Pushforward of Ideals</span></div>
-    <div class="thm_thmcontent"><p>   For a ring homomorphism \(\phi : R \to S\) and an ideal \(I \triangleleft R\), the pushforward is: </p>
+    <div class="thm_thmcontent">
+<p>For a ring homomorphism \(\phi : R \to S\) and an ideal \(I \triangleleft R\), the pushforward is: </p>
 <div class="displaymath" id="a0000000056">
   \[ \phi (I) := \phi (I) \cdot S = \{ \sum _j \phi (a_j) s_j : a_j \in I, s_j \in S\}  \]
 </div>
@@ -721,7 +737,7 @@
     <a class="latex_link" href="sect0003.html#def:pushforward-ideals">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Ideal.map">Lean</a>
+  
     
     
   
@@ -745,7 +761,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">9</span><span class="definition_thmtitle">Radical Ideal</span></div>
-    <div class="thm_thmcontent"><p>   An ideal \(I \triangleleft R\) of a commutative ring \(R\) is <em>radical</em> if \(I = \sqrt{I}\), where </p>
+    <div class="thm_thmcontent">
+<p>An ideal \(I \triangleleft R\) of a commutative ring \(R\) is <em>radical</em> if \(I = \sqrt{I}\), where </p>
 <div class="displaymath" id="a0000000030">
   \[ \sqrt{I} := \{ x \in R : \exists n \geq 1, x^n \in I\}  \]
 </div>
@@ -755,7 +772,7 @@
     <a class="latex_link" href="sect0002.html#def:radical-ideal">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/IsRadical">Lean</a>
+  
     
     
   
@@ -779,7 +796,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">10</span><span class="definition_thmtitle">Order and Operations on Radical Ideals</span></div>
-    <div class="thm_thmcontent"><p>    For radical ideals \(I, J \in \mathrm{Rad}(R)\): </p>
+    <div class="thm_thmcontent">
+<p>For radical ideals \(I, J \in \mathrm{Rad}(R)\): </p>
 <ol class="enumerate">
   <li><p><b class="bfseries">Order:</b> \(I \leq J :\iff I \subseteq J\) (set inclusion) </p>
 </li>
@@ -797,18 +815,7 @@
     <a class="latex_link" href="sect0002.html#def:radical-ideal-operations">LaTeX</a>
     
     
-  <div class="tooltip">
-      <span class="lean_link">Lean</span>
-      <ul class="tooltip_list">
-        
-           <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.instLE" class="lean_decl">Rad.instLE</a></li>
-        
-           <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.instInf" class="lean_decl">Rad.instInf</a></li>
-        
-           <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.instSup" class="lean_decl">Rad.instSup</a></li>
-        
-      </ul>
-  </div>
+  
     
     
   
@@ -832,7 +839,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">50</span><span class="definition_thmtitle">Scheme (Pointfree)</span></div>
-    <div class="thm_thmcontent"><p>    A <em>scheme</em> is a locally ringed locale \((X, \mathcal{O}_X)\) such that \(X\) has an open cover \(\{ u_i : i \in I\} \) (where \(\bigvee _i u_i = \top \)) with the property that: </p>
+    <div class="thm_thmcontent">
+<p>A <em>scheme</em> is a locally ringed locale \((X, \mathcal{O}_X)\) such that \(X\) has an open cover \(\{ u_i : i \in I\} \) (where \(\bigvee _i u_i = \top \)) with the property that: </p>
 <ol class="enumerate">
   <li><p>The restriction \((u_i, \mathcal{O}_X|_{u_i})\) to each open is isomorphic to an affine scheme \(\mathrm{Spec} R_i\) </p>
 </li>
@@ -844,7 +852,7 @@
     <a class="latex_link" href="sect0005.html#def:scheme-pointfree">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Scheme">Lean</a>
+  
     
     
   
@@ -868,7 +876,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">34</span><span class="definition_thmtitle">Sheaf on a Locale</span></div>
-    <div class="thm_thmcontent"><p>   Let \(L\) be a frame (viewed as a category with objects being elements of \(L\) and morphisms being the order relations \(u \leq v\)). A <em>sheaf on \(L\) with values in a category \(\mathcal{C}\)</em> is a functor \(\mathcal{F}: L^{\mathrm{op}} \to \mathcal{C}\) such that for every family \((u_i)_{i \in I}\) with \(\bigvee _i u_i = u\): </p>
+    <div class="thm_thmcontent">
+<p>Let \(L\) be a frame (viewed as a category with objects being elements of \(L\) and morphisms being the order relations \(u \leq v\)). A <em>sheaf on \(L\) with values in a category \(\mathcal{C}\)</em> is a functor \(\mathcal{F}: L^{\mathrm{op}} \to \mathcal{C}\) such that for every family \((u_i)_{i \in I}\) with \(\bigvee _i u_i = u\): </p>
 <div class="displaymath" id="a0000000079">
   \[ \mathcal{F}(u) \to \prod _i \mathcal{F}(u_i) \rightrightarrows \prod _{i,j} \mathcal{F}(u_i \land u_j) \]
 </div>
@@ -878,7 +887,7 @@
     <a class="latex_link" href="sect0004.html#def:sheaf-locale">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Sheaf">Lean</a>
+  
     
     
   
@@ -902,7 +911,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">44</span><span class="definition_thmtitle">Stalk in a Locale</span></div>
-    <div class="thm_thmcontent"><p>    For a sheaf \(\mathcal{F}\) on a locale \(X\) and an element \(u \in X\), the <em>stalk</em> is defined as: </p>
+    <div class="thm_thmcontent">
+<p>For a sheaf \(\mathcal{F}\) on a locale \(X\) and an element \(u \in X\), the <em>stalk</em> is defined as: </p>
 <div class="displaymath" id="a0000000094">
   \[ \mathcal{F}_{\bar{u}} := \lim _{v \in \downarrow u} \mathcal{F}(v) \]
 </div>
@@ -912,7 +922,7 @@
     <a class="latex_link" href="sect0005.html#def:stalk-locale">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Sheaf.stalk">Lean</a>
+  
     
     
   
@@ -936,7 +946,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">41</span><span class="definition_thmtitle">Extension to Arbitrary Radical Ideals</span></div>
-    <div class="thm_thmcontent"><p>    For a radical ideal \(I \in \mathrm{Rad}(R)\), extend the structure sheaf by: </p>
+    <div class="thm_thmcontent">
+<p>For a radical ideal \(I \in \mathrm{Rad}(R)\), extend the structure sheaf by: </p>
 <div class="displaymath" id="a0000000091">
   \[ \mathcal{O}_{\mathrm{Spec} R}(I) := \lim _{f \in I} R_f \]
 </div>
@@ -947,7 +958,7 @@
     <a class="latex_link" href="sect0004.html#def:structure-sheaf-radical-ideals">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Spec.sheaf_extend">Lean</a>
+  
     
     
   
@@ -971,7 +982,8 @@
       Definition
       </span>
       <span class="definition_thmlabel">38</span><span class="definition_thmtitle">Structure Sheaf on Zariski Locale</span></div>
-    <div class="thm_thmcontent"><p>    Define \(\mathcal{O}_{\mathrm{Spec} R}\) on the basic opens by: </p>
+    <div class="thm_thmcontent">
+<p>Define \(\mathcal{O}_{\mathrm{Spec} R}\) on the basic opens by: </p>
 <div class="displaymath" id="a0000000082">
   \[ \mathcal{O}_{\mathrm{Spec} R}(D(f)) := R_f \]
 </div>
@@ -984,7 +996,7 @@
     <a class="latex_link" href="sect0004.html#def:structure-sheaf-zariski">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Spec.sheaf">Lean</a>
+  
     
     
   
@@ -1022,16 +1034,7 @@
     <a class="latex_link" href="sect0002.html#lemma:basic-open-meet-join">LaTeX</a>
     
     
-  <div class="tooltip">
-      <span class="lean_link">Lean</span>
-      <ul class="tooltip_list">
-        
-           <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.basicOpen_inf" class="lean_decl">Rad.basicOpen_inf</a></li>
-        
-           <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.basicOpen_sup" class="lean_decl">Rad.basicOpen_sup</a></li>
-        
-      </ul>
-  </div>
+  
     
     
   
@@ -1055,7 +1058,8 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">20</span><span class="lemma_thmtitle">Properties of Basic Opens</span></div>
-    <div class="thm_thmcontent"><p>    The basic opens satisfy: </p>
+    <div class="thm_thmcontent">
+<p>The basic opens satisfy: </p>
 <ol class="enumerate">
   <li><p>\(D(1) = \sqrt{(1)} = R = \top \) </p>
 </li>
@@ -1071,7 +1075,7 @@
     <a class="latex_link" href="sect0002.html#lemma:basic-open-properties">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.basicOpen">Lean</a>
+  
     
     
   
@@ -1095,13 +1099,14 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">19</span><span class="lemma_thmtitle">Basic Opens are Radical</span></div>
-    <div class="thm_thmcontent"><p>    For any \(f \in R\), the ideal \(D(f) = \sqrt{(f)}\) is radical. </p>
+    <div class="thm_thmcontent">
+<p>For any \(f \in R\), the ideal \(D(f) = \sqrt{(f)}\) is radical. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#lemma:basic-open-radical">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/IsRadical.span_singleton">Lean</a>
+  
     
     
   
@@ -1125,13 +1130,14 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">55</span><span class="lemma_thmtitle">Closed Sublocales are Closed under Unions</span></div>
-    <div class="thm_thmcontent"><p>    Arbitrary intersections of closed sublocales are closed: if \((I_j)_{j \in J}\) are radical ideals, then \(V(I_j)\) are closed and \(\bigcap _j V(I_j) = V(\sum _j I_j) = V(\bigvee _j I_j)\). </p>
+    <div class="thm_thmcontent">
+<p>Arbitrary intersections of closed sublocales are closed: if \((I_j)_{j \in J}\) are radical ideals, then \(V(I_j)\) are closed and \(\bigcap _j V(I_j) = V(\sum _j I_j) = V(\bigvee _j I_j)\). </p>
 </div>
 
     <a class="latex_link" href="sect0006.html#lemma:closed-sublocales-unions">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/ClosedSublocale.closed_union">Lean</a>
+  
     
     
   
@@ -1155,7 +1161,8 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">23</span><span class="lemma_thmtitle">Cover Criterion for Basic Opens</span></div>
-    <div class="thm_thmcontent"><p>    For \(f \in R\) and a family \((g_i)_{i \in I}\) of elements of \(R\): </p>
+    <div class="thm_thmcontent">
+<p>For \(f \in R\) and a family \((g_i)_{i \in I}\) of elements of \(R\): </p>
 <div class="displaymath" id="a0000000052">
   \[ D(f) \leq \bigvee _i D(g_i) \iff f \in \sqrt{(g_i : i \in I)} \]
 </div>
@@ -1164,7 +1171,7 @@
     <a class="latex_link" href="sect0002.html#lemma:cover-criterion-basic-opens">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.cover_iff">Lean</a>
+  
     
     
   
@@ -1188,7 +1195,8 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">32</span><span class="lemma_thmtitle">Identity Homomorphism</span></div>
-    <div class="thm_thmcontent"><p>    For the identity ring homomorphism \(\mathrm{id}_R : R \to R\): </p>
+    <div class="thm_thmcontent">
+<p>For the identity ring homomorphism \(\mathrm{id}_R : R \to R\): </p>
 <div class="displaymath" id="a0000000073">
   \[ (\mathrm{id}_R)^* = \mathrm{id}_{\mathrm{Rad}(R)} \]
 </div>
@@ -1197,7 +1205,7 @@
     <a class="latex_link" href="sect0003.html#lemma:identity-homomorphism">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/id_map">Lean</a>
+  
     
     
   
@@ -1221,13 +1229,14 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">11</span><span class="lemma_thmtitle">Intersection of Radical Ideals is Radical</span></div>
-    <div class="thm_thmcontent"><p>    If \(I, J \in \mathrm{Rad}(R)\), then \(I \cap J \in \mathrm{Rad}(R)\). </p>
+    <div class="thm_thmcontent">
+<p>If \(I, J \in \mathrm{Rad}(R)\), then \(I \cap J \in \mathrm{Rad}(R)\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#lemma:intersection-radical">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/IsRadical.inf">Lean</a>
+  
     
     
   
@@ -1251,13 +1260,14 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">13</span><span class="lemma_thmtitle">Join of Radical Ideals</span></div>
-    <div class="thm_thmcontent"><p>    For a family \((I_i)_{i \in I}\) of radical ideals, \(\sqrt{\sum _{i \in I} I_i}\) is the supremum in \(\mathrm{Rad}(R)\). </p>
+    <div class="thm_thmcontent">
+<p>For a family \((I_i)_{i \in I}\) of radical ideals, \(\sqrt{\sum _{i \in I} I_i}\) is the supremum in \(\mathrm{Rad}(R)\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#lemma:join-radical-ideals">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.sSup">Lean</a>
+  
     
     
   
@@ -1281,13 +1291,14 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">5</span><span class="lemma_thmtitle">Locale Morphism Composition</span></div>
-    <div class="thm_thmcontent"><p>    Composition of locale morphisms is well-defined and associative. </p>
+    <div class="thm_thmcontent">
+<p>Composition of locale morphisms is well-defined and associative. </p>
 </div>
 
     <a class="latex_link" href="sect0001.html#lemma:locale-morphism-composition">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Frame.Hom.comp">Lean</a>
+  
     
     
   
@@ -1325,7 +1336,7 @@
     <a class="latex_link" href="sect0004.html#lemma:localization-properties">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Localization.Away.map">Lean</a>
+  
     
     
   
@@ -1349,7 +1360,8 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">30</span><span class="lemma_thmtitle">Preservation of Arbitrary Joins</span></div>
-    <div class="thm_thmcontent"><p>    For a family \((I_j)_{j \in J}\) of radical ideals: </p>
+    <div class="thm_thmcontent">
+<p>For a family \((I_j)_{j \in J}\) of radical ideals: </p>
 <div class="displaymath" id="a0000000068">
   \[ \phi ^*(\bigvee _j I_j) = \bigvee _j \phi ^*(I_j) \]
 </div>
@@ -1358,7 +1370,7 @@
     <a class="latex_link" href="sect0003.html#lemma:preserve-arbitrary-joins">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/map_sSup">Lean</a>
+  
     
     
   
@@ -1382,7 +1394,8 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">29</span><span class="lemma_thmtitle">Preservation of Finite Meets</span></div>
-    <div class="thm_thmcontent"><p>    For \(I, J \in \mathrm{Rad}(R)\): </p>
+    <div class="thm_thmcontent">
+<p>For \(I, J \in \mathrm{Rad}(R)\): </p>
 <div class="displaymath" id="a0000000063">
   \[ \phi ^*(I \land J) = \phi ^*(I) \land \phi ^*(J) \]
 </div>
@@ -1391,7 +1404,7 @@
     <a class="latex_link" href="sect0003.html#lemma:preserve-finite-meets">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/map_inf">Lean</a>
+  
     
     
   
@@ -1415,13 +1428,14 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">28</span><span class="lemma_thmtitle">Preservation of Top</span></div>
-    <div class="thm_thmcontent"><p>    \(\phi ^*(R) = S\). </p>
+    <div class="thm_thmcontent">
+<p>\(\phi ^*(R) = S\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#lemma:preserve-top">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/map_top">Lean</a>
+  
     
     
   
@@ -1445,13 +1459,14 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">58</span><span class="lemma_thmtitle">Primeness in the Frame</span></div>
-    <div class="thm_thmcontent"><p>    A radical ideal \(\mathfrak {p}\) is prime iff: \(\mathfrak {p} \leq I \lor J \implies \mathfrak {p} \leq I \text{ or } \mathfrak {p} \leq J\) for all radical ideals \(I, J\). </p>
+    <div class="thm_thmcontent">
+<p>A radical ideal \(\mathfrak {p}\) is prime iff: \(\mathfrak {p} \leq I \lor J \implies \mathfrak {p} \leq I \text{ or } \mathfrak {p} \leq J\) for all radical ideals \(I, J\). </p>
 </div>
 
     <a class="latex_link" href="sect0006.html#lemma:prime-frame-criterion">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/isPrime_iff_le_or_le">Lean</a>
+  
     
     
   
@@ -1475,7 +1490,8 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">15</span><span class="lemma_thmtitle">Product of Ideals and Radical</span></div>
-    <div class="thm_thmcontent"><p>    For ideals \(I, J \triangleleft R\): </p>
+    <div class="thm_thmcontent">
+<p>For ideals \(I, J \triangleleft R\): </p>
 <div class="displaymath" id="a0000000036">
   \[ \sqrt{I \cdot J} = \sqrt{I \cap J} \]
 </div>
@@ -1484,7 +1500,7 @@
     <a class="latex_link" href="sect0002.html#lemma:product-radical-property">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/sqrt_mul_eq_mul">Lean</a>
+  
     
     
   
@@ -1508,13 +1524,14 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">27</span><span class="lemma_thmtitle">Image of Radical is Radical</span></div>
-    <div class="thm_thmcontent"><p>    If \(I \in \mathrm{Rad}(R)\), then \(\phi ^*(I) = \sqrt{\phi (I) \cdot S} \in \mathrm{Rad}(S)\). </p>
+    <div class="thm_thmcontent">
+<p>If \(I \in \mathrm{Rad}(R)\), then \(\phi ^*(I) = \sqrt{\phi (I) \cdot S} \in \mathrm{Rad}(S)\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#lemma:radical-image">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/IsRadical.map">Lean</a>
+  
     
     
   
@@ -1538,7 +1555,8 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">22</span><span class="lemma_thmtitle">Radical Membership and Basic Opens</span></div>
-    <div class="thm_thmcontent"><p>    For \(f \in R\) and \(I \in \mathrm{Rad}(R)\): </p>
+    <div class="thm_thmcontent">
+<p>For \(f \in R\) and \(I \in \mathrm{Rad}(R)\): </p>
 <div class="displaymath" id="a0000000050">
   \[ f \in \sqrt{I} \iff D(f) \subseteq I \iff D(f) \leq I \]
 </div>
@@ -1547,7 +1565,7 @@
     <a class="latex_link" href="sect0002.html#lemma:radical-membership-basic-open">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/mem_sqrt_iff_pow_mem">Lean</a>
+  
     
     
   
@@ -1571,7 +1589,8 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">40</span><span class="lemma_thmtitle">Restriction Maps Compose</span></div>
-    <div class="thm_thmcontent"><p>    For \(D(f) \leq D(g) \leq D(h)\), the restriction maps satisfy: </p>
+    <div class="thm_thmcontent">
+<p>For \(D(f) \leq D(g) \leq D(h)\), the restriction maps satisfy: </p>
 <div class="displaymath" id="a0000000088">
   \[ \rho _{h,f} = \rho _{g,f} \circ \rho _{h,g} \]
 </div>
@@ -1580,7 +1599,7 @@
     <a class="latex_link" href="sect0004.html#lemma:restriction-compose">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Spec.sheaf.map_comp">Lean</a>
+  
     
     
   
@@ -1604,13 +1623,14 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">39</span><span class="lemma_thmtitle">Restriction Maps are Well-Defined</span></div>
-    <div class="thm_thmcontent"><p>    For \(f \in \sqrt{(g)}\) (so \(f^n = rg\)), the map \(\rho _{g,f}\) is a well-defined ring homomorphism. </p>
+    <div class="thm_thmcontent">
+<p>For \(f \in \sqrt{(g)}\) (so \(f^n = rg\)), the map \(\rho _{g,f}\) is a well-defined ring homomorphism. </p>
 </div>
 
     <a class="latex_link" href="sect0004.html#lemma:restriction-maps-well-defined">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Spec.sheaf.map_well_defined">Lean</a>
+  
     
     
   
@@ -1634,7 +1654,8 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">7</span><span class="lemma_thmtitle">Universal Property of Presented Frames</span></div>
-    <div class="thm_thmcontent"><p>    Let \(L = \mathrm{Fr}\langle G \mid R \rangle \) be a presented frame, and let \(M\) be another frame. A frame homomorphism \(f: L \to M\) is determined by: </p>
+    <div class="thm_thmcontent">
+<p>Let \(L = \mathrm{Fr}\langle G \mid R \rangle \) be a presented frame, and let \(M\) be another frame. A frame homomorphism \(f: L \to M\) is determined by: </p>
 <ol class="enumerate">
   <li><p>A function \(\phi : G \to M\) </p>
 </li>
@@ -1646,7 +1667,7 @@
     <a class="latex_link" href="sect0001.html#lemma:universal-property-presented-frame">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Frame.Presented.lift">Lean</a>
+  
     
     
   
@@ -1670,13 +1691,14 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">47</span><span class="theorem_thmtitle">Affine Schemes are Locally Ringed</span></div>
-    <div class="thm_thmcontent"><p>    Every affine scheme \((\mathrm{Spec} R, \mathcal{O}_{\mathrm{Spec} R})\) is a locally ringed locale. </p>
+    <div class="thm_thmcontent">
+<p>Every affine scheme \((\mathrm{Spec} R, \mathcal{O}_{\mathrm{Spec} R})\) is a locally ringed locale. </p>
 </div>
 
     <a class="latex_link" href="sect0005.html#thm:affine-scheme-locally-ringed">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/AffineScheme.locallyRinged">Lean</a>
+  
     
     
   
@@ -1700,7 +1722,8 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">33</span><span class="theorem_thmtitle">Functoriality of Spec</span></div>
-    <div class="thm_thmcontent"><p>    There exists a contravariant functor: </p>
+    <div class="thm_thmcontent">
+<p>There exists a contravariant functor: </p>
 <div class="displaymath" id="a0000000076">
   \[ \mathrm{Spec}: \mathbf{CRing}^{\mathrm{op}} \to \mathbf{Loc} \]
 </div>
@@ -1723,7 +1746,7 @@
     <a class="latex_link" href="sect0003.html#thm:functoriality-spec">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Spec">Lean</a>
+  
     
     
   
@@ -1747,13 +1770,14 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">31</span><span class="theorem_thmtitle">\(\phi ^*\) is a Frame Homomorphism</span></div>
-    <div class="thm_thmcontent"><p>    For a ring homomorphism \(\phi : R \to S\), the map \(\phi ^*: \mathrm{Rad}(R) \to \mathrm{Rad}(S)\) is a frame homomorphism. </p>
+    <div class="thm_thmcontent">
+<p>For a ring homomorphism \(\phi : R \to S\), the map \(\phi ^*: \mathrm{Rad}(R) \to \mathrm{Rad}(S)\) is a frame homomorphism. </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:phi-star-frame-homomorphism">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.map_isFrameHom">Lean</a>
+  
     
     
   
@@ -1777,13 +1801,14 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">59</span><span class="theorem_thmtitle">Prime Ideals as Specialization-Prime</span></div>
-    <div class="thm_thmcontent"><p>    A radical ideal \(\mathfrak {p} \in \mathrm{Rad}(R)\) is prime iff \(\mathfrak {p}\) is the set of elements that specialize to a fixed point in the topological spectrum (if we were to use points). Pointfree, this means \(\mathfrak {p}\) is exactly the closure of the empty set in the principal filter \(\uparrow \mathfrak {p}\). </p>
+    <div class="thm_thmcontent">
+<p>A radical ideal \(\mathfrak {p} \in \mathrm{Rad}(R)\) is prime iff \(\mathfrak {p}\) is the set of elements that specialize to a fixed point in the topological spectrum (if we were to use points). Pointfree, this means \(\mathfrak {p}\) is exactly the closure of the empty set in the principal filter \(\uparrow \mathfrak {p}\). </p>
 </div>
 
     <a class="latex_link" href="sect0006.html#thm:prime-ideals-specialization">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/IsPrime_iff_specialization">Lean</a>
+  
     
     
   
@@ -1807,13 +1832,14 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">14</span><span class="theorem_thmtitle">Radical Ideals Form a Complete Lattice</span></div>
-    <div class="thm_thmcontent"><p>    The structure \((\mathrm{Rad}(R), \leq , \land , \bigvee , \top , \bot )\) with operations as in <a href="sect0002.html#def:radical-ideal-operations">Definition 10</a> forms a complete lattice. </p>
+    <div class="thm_thmcontent">
+<p>The structure \((\mathrm{Rad}(R), \leq , \land , \bigvee , \top , \bot )\) with operations as in <a href="sect0002.html#def:radical-ideal-operations">Definition 10</a> forms a complete lattice. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:radical-complete-lattice">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.instCompleteLattice">Lean</a>
+  
     
     
   
@@ -1837,7 +1863,8 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">16</span><span class="theorem_thmtitle">Frame Distributivity of Radical Ideals</span></div>
-    <div class="thm_thmcontent"><p>    The complete lattice \((\mathrm{Rad}(R), \leq , \land , \bigvee , \top , \bot )\) satisfies the infinite distributive law: </p>
+    <div class="thm_thmcontent">
+<p>The complete lattice \((\mathrm{Rad}(R), \leq , \land , \bigvee , \top , \bot )\) satisfies the infinite distributive law: </p>
 <div class="displaymath" id="a0000000038">
   \[ I \land \bigvee _{j \in J} K_j = \bigvee _{j \in J} (I \land K_j) \]
 </div>
@@ -1847,7 +1874,7 @@
     <a class="latex_link" href="sect0002.html#thm:radical-frame-distributivity">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.instFrame">Lean</a>
+  
     
     
   
@@ -1871,7 +1898,8 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">49</span><span class="theorem_thmtitle">Ring Homomorphisms Induce Scheme Morphisms</span></div>
-    <div class="thm_thmcontent"><p>    Every ring homomorphism \(\phi : S \to R\) induces a morphism of affine schemes: </p>
+    <div class="thm_thmcontent">
+<p>Every ring homomorphism \(\phi : S \to R\) induces a morphism of affine schemes: </p>
 <div class="displaymath" id="a0000000098">
   \[ \mathrm{Spec} \phi : \mathrm{Spec} R \to \mathrm{Spec} S \]
 </div>
@@ -1880,7 +1908,7 @@
     <a class="latex_link" href="sect0005.html#thm:ring-hom-to-scheme-morphism">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/AffineScheme.of_ringHom">Lean</a>
+  
     
     
   
@@ -1904,13 +1932,14 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">42</span><span class="theorem_thmtitle">Sheaf Property of the Structure Sheaf</span></div>
-    <div class="thm_thmcontent"><p>    The structure sheaf \(\mathcal{O}_{\mathrm{Spec} R}\) is a sheaf on the Zariski locale \(\mathrm{Rad}(R)\). </p>
+    <div class="thm_thmcontent">
+<p>The structure sheaf \(\mathcal{O}_{\mathrm{Spec} R}\) is a sheaf on the Zariski locale \(\mathrm{Rad}(R)\). </p>
 </div>
 
     <a class="latex_link" href="sect0004.html#thm:structure-sheaf-property">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Spec.sheaf_is_sheaf">Lean</a>
+  
     
     
   
@@ -1934,13 +1963,14 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">52</span><span class="theorem_thmtitle">Universal Property of Schemes</span></div>
-    <div class="thm_thmcontent"><p>    Schemes form a category with morphisms being locale morphisms respecting the ringed structure. Affine schemes are the full subcategory of schemes admitting a single affine open cover. </p>
+    <div class="thm_thmcontent">
+<p>Schemes form a category with morphisms being locale morphisms respecting the ringed structure. Affine schemes are the full subcategory of schemes admitting a single affine open cover. </p>
 </div>
 
     <a class="latex_link" href="sect0005.html#thm:universal-property-schemes">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Scheme.universal_property">Lean</a>
+  
     
     
   
@@ -1964,7 +1994,8 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">24</span><span class="theorem_thmtitle">Frame Presentation of Spec(R)</span></div>
-    <div class="thm_thmcontent"><p>    The Zariski frame of a commutative ring \(R\) admits the presentation: </p>
+    <div class="thm_thmcontent">
+<p>The Zariski frame of a commutative ring \(R\) admits the presentation: </p>
 <div class="displaymath" id="a0000000055">
   \[ \mathcal{O}(\mathrm{Spec}\,  R) \cong \mathrm{Fr}\langle D(f) : f \in R \mid \mathcal{R} \rangle  \]
 </div>
@@ -1986,7 +2017,7 @@
     <a class="latex_link" href="sect0002.html#thm:zariski-frame-presentation">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Rad.presentation">Lean</a>
+  
     
     
   
@@ -2014,7 +2045,7 @@ graphContainer.graphviz({useWorker: true})
     .width(width)
     .height(height)
     .fit(true)
-    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"def:induced-frame-homomorphism"	[label="induced-frame-homomorphism",		shape=box];	"lemma:preserve-finite-meets"	[label="preserve-finite-meets",		shape=ellipse];	"def:induced-frame-homomorphism" -> "lemma:preserve-finite-meets"	[style=dashed];	"lemma:preserve-arbitrary-joins"	[label="preserve-arbitrary-joins",		shape=ellipse];	"def:induced-frame-homomorphism" -> "lemma:preserve-arbitrary-joins"	[style=dashed];	"lemma:identity-homomorphism"	[label="identity-homomorphism",		shape=ellipse];	"def:induced-frame-homomorphism" -> "lemma:identity-homomorphism"	[style=dashed];	"lemma:preserve-top"	[label="preserve-top",		shape=ellipse];	"def:induced-frame-homomorphism" -> "lemma:preserve-top"	[style=dashed];	"thm:phi-star-frame-homomorphism"	[label="phi-star-frame-homomorphism",		shape=ellipse];	"lemma:preserve-finite-meets" -> "thm:phi-star-frame-homomorphism"	[style=dashed];	"lemma:preserve-arbitrary-joins" -> "thm:phi-star-frame-homomorphism"	[style=dashed];	"thm:functoriality-spec"	[label="functoriality-spec",		shape=ellipse];	"lemma:identity-homomorphism" -> "thm:functoriality-spec"	[style=dashed];	"lemma:preserve-top" -> "thm:phi-star-frame-homomorphism"	[style=dashed];	"thm:phi-star-frame-homomorphism" -> "thm:functoriality-spec"	[style=dashed];	"thm:ring-hom-to-scheme-morphism"	[label="ring-hom-to-scheme-morphism",		shape=ellipse];	"thm:functoriality-spec" -> "thm:ring-hom-to-scheme-morphism"	[style=dashed];	"def:scheme-pointfree"	[label="scheme-pointfree",		shape=box];	"thm:universal-property-schemes"	[label="universal-property-schemes",		shape=ellipse];	"def:scheme-pointfree" -> "thm:universal-property-schemes"	[style=dashed];	"def:irreducible-scheme"	[label="irreducible-scheme",		shape=box];	"def:scheme-pointfree" -> "def:irreducible-scheme"	[style=dashed];	"def:open-sublocale"	[label="open-sublocale",		shape=box];	"def:closed-sublocale"	[label="closed-sublocale",		shape=box];	"lemma:closed-sublocales-unions"	[label="closed-sublocales-unions",		shape=ellipse];	"def:closed-sublocale" -> "lemma:closed-sublocales-unions"	[style=dashed];	"lemma:basic-open-meet-join"	[label="basic-open-meet-join",		shape=ellipse];	"lemma:radical-membership-basic-open"	[label="radical-membership-basic-open",		shape=ellipse];	"lemma:cover-criterion-basic-opens"	[label="cover-criterion-basic-opens",		shape=ellipse];	"lemma:radical-membership-basic-open" -> "lemma:cover-criterion-basic-opens"	[style=dashed];	"def:stalk-locale"	[label="stalk-locale",		shape=box];	"def:prime-frame-element"	[label="prime-frame-element",		shape=box];	"lemma:prime-frame-criterion"	[label="prime-frame-criterion",		shape=ellipse];	"def:prime-frame-element" -> "lemma:prime-frame-criterion"	[style=dashed];	"lemma:radical-image"	[label="radical-image",		shape=ellipse];	"lemma:restriction-compose"	[label="restriction-compose",		shape=ellipse];	"thm:radical-complete-lattice"	[label="radical-complete-lattice",		shape=ellipse];	"cor:radical-frame"	[label="radical-frame",		shape=ellipse];	"thm:radical-complete-lattice" -> "cor:radical-frame"	[style=dashed];	"thm:prime-ideals-specialization"	[label="prime-ideals-specialization",		shape=ellipse];	"def:frame"	[color=blue,		fillcolor="#A3D6FF",		label=frame,		shape=box,		style=filled];	"def:frame" -> "def:prime-frame-element"	[style=dashed];	"def:locale"	[color=blue,		fillcolor="#A3D6FF",		label=locale,		shape=box,		style=filled];	"def:locale" -> "def:open-sublocale"	[style=dashed];	"def:locale" -> "def:closed-sublocale"	[style=dashed];	"def:locally-ringed-locale"	[label="locally-ringed-locale",		shape=box];	"def:locale" -> "def:locally-ringed-locale"	[style=dashed];	"lemma:locale-morphism-composition"	[label="locale-morphism-composition",		shape=ellipse];	"def:locale" -> "lemma:locale-morphism-composition"	[style=dashed];	"def:irreducible-locale"	[label="irreducible-locale",		shape=box];	"def:locale" -> "def:irreducible-locale"	[style=dashed];	"def:affine-scheme"	[label="affine-scheme",		shape=box];	"def:locally-ringed-locale" -> "def:affine-scheme"	[style=dashed];	"def:affine-scheme" -> "def:scheme-pointfree"	[style=dashed];	"def:morphism-affine-schemes"	[label="morphism-affine-schemes",		shape=box];	"def:affine-scheme" -> "def:morphism-affine-schemes"	[style=dashed];	"thm:affine-scheme-locally-ringed"	[label="affine-scheme-locally-ringed",		shape=ellipse];	"def:affine-scheme" -> "thm:affine-scheme-locally-ringed"	[style=dashed];	"def:localization-element"	[color=blue,		fillcolor="#A3D6FF",		label="localization-element",		shape=box,		style=filled];	"def:structure-sheaf-zariski"	[label="structure-sheaf-zariski",		shape=box];	"def:localization-element" -> "def:structure-sheaf-zariski"	[style=dashed];	"lemma:localization-properties"	[label="localization-properties",		shape=ellipse];	"def:localization-element" -> "lemma:localization-properties"	[style=dashed];	"def:structure-sheaf-radical-ideals"	[label="structure-sheaf-radical-ideals",		shape=box];	"def:structure-sheaf-zariski" -> "def:structure-sheaf-radical-ideals"	[style=dashed];	"lemma:restriction-maps-well-defined"	[label="restriction-maps-well-defined",		shape=ellipse];	"def:structure-sheaf-zariski" -> "lemma:restriction-maps-well-defined"	[style=dashed];	"thm:structure-sheaf-property"	[label="structure-sheaf-property",		shape=ellipse];	"def:structure-sheaf-radical-ideals" -> "thm:structure-sheaf-property"	[style=dashed];	"lemma:restriction-maps-well-defined" -> "lemma:restriction-compose"	[style=dashed];	"thm:structure-sheaf-property" -> "def:affine-scheme"	[style=dashed];	"def:morphism-affine-schemes" -> "thm:ring-hom-to-scheme-morphism"	[style=dashed];	"def:morphism-affine-schemes" -> "thm:universal-property-schemes"	[style=dashed];	"thm:radical-frame-distributivity"	[label="radical-frame-distributivity",		shape=ellipse];	"thm:radical-frame-distributivity" -> "cor:radical-frame"	[style=dashed];	"def:pushforward-ideals"	[color=blue,		fillcolor="#A3D6FF",		label="pushforward-ideals",		shape=box,		style=filled];	"def:pushforward-ideals" -> "def:induced-frame-homomorphism"	[style=dashed];	"def:pushforward-ideals" -> "lemma:radical-image"	[style=dashed];	"lemma:universal-property-presented-frame"	[label="universal-property-presented-frame",		shape=ellipse];	"cor:characterization-presented-frame"	[label="characterization-presented-frame",		shape=ellipse];	"lemma:universal-property-presented-frame" -> "cor:characterization-presented-frame"	[style=dashed];	"lemma:intersection-radical"	[label="intersection-radical",		shape=ellipse];	"cor:arbitrary-intersection-radical"	[label="arbitrary-intersection-radical",		shape=ellipse];	"lemma:intersection-radical" -> "cor:arbitrary-intersection-radical"	[style=dashed];	"cor:arbitrary-intersection-radical" -> "thm:radical-complete-lattice"	[style=dashed];	"lemma:join-radical-ideals"	[label="join-radical-ideals",		shape=ellipse];	"lemma:join-radical-ideals" -> "thm:radical-complete-lattice"	[style=dashed];	"def:basic-open-set"	[label="basic-open-set",		shape=box];	"def:basic-open-set" -> "lemma:radical-membership-basic-open"	[style=dashed];	"def:basic-open-set" -> "def:structure-sheaf-zariski"	[style=dashed];	"lemma:basic-open-radical"	[label="basic-open-radical",		shape=ellipse];	"def:basic-open-set" -> "lemma:basic-open-radical"	[style=dashed];	"lemma:basic-open-properties"	[label="basic-open-properties",		shape=ellipse];	"def:basic-open-set" -> "lemma:basic-open-properties"	[style=dashed];	"lemma:basic-open-properties" -> "lemma:basic-open-meet-join"	[style=dashed];	"thm:zariski-frame-presentation"	[label="zariski-frame-presentation",		shape=ellipse];	"lemma:basic-open-properties" -> "thm:zariski-frame-presentation"	[style=dashed];	"def:presented-frame"	[color=blue,		fillcolor="#A3D6FF",		label="presented-frame",		shape=box,		style=filled];	"def:presented-frame" -> "lemma:universal-property-presented-frame"	[style=dashed];	"def:presented-frame" -> "thm:zariski-frame-presentation"	[style=dashed];	"def:prime-ideal"	[label="prime-ideal",		shape=box];	"def:prime-ideal" -> "lemma:prime-frame-criterion"	[style=dashed];	"def:prime-ideal" -> "thm:prime-ideals-specialization"	[style=dashed];	"def:radical-ideal"	[color=blue,		fillcolor="#A3D6FF",		label="radical-ideal",		shape=box,		style=filled];	"def:radical-ideal" -> "def:closed-sublocale"	[style=dashed];	"def:radical-ideal" -> "lemma:radical-image"	[style=dashed];	"def:radical-ideal" -> "lemma:intersection-radical"	[style=dashed];	"def:radical-ideal" -> "def:basic-open-set"	[style=dashed];	"def:radical-ideal" -> "def:prime-ideal"	[style=dashed];	"def:radical-ideal-operations"	[label="radical-ideal-operations",		shape=box];	"def:radical-ideal" -> "def:radical-ideal-operations"	[style=dashed];	"lemma:product-radical-property"	[label="product-radical-property",		shape=ellipse];	"def:radical-ideal" -> "lemma:product-radical-property"	[style=dashed];	"def:radical-ideal-operations" -> "thm:radical-frame-distributivity"	[style=dashed];	"def:radical-ideal-operations" -> "lemma:join-radical-ideals"	[style=dashed];	"lemma:product-radical-property" -> "lemma:preserve-finite-meets"	[style=dashed];	"lemma:product-radical-property" -> "thm:radical-frame-distributivity"	[style=dashed];	"def:frame-homomorphism"	[color=blue,		fillcolor="#A3D6FF",		label="frame-homomorphism",		shape=box,		style=filled];	"def:frame-homomorphism" -> "lemma:locale-morphism-composition"	[style=dashed];	"def:frame-homomorphism" -> "lemma:universal-property-presented-frame"	[style=dashed];	"def:sheaf-locale"	[color=blue,		fillcolor="#A3D6FF",		label="sheaf-locale",		shape=box,		style=filled];	"def:sheaf-locale" -> "def:stalk-locale"	[style=dashed];	"def:sheaf-locale" -> "def:locally-ringed-locale"	[style=dashed];}`)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"def:structure-sheaf-radical-ideals"	[label="structure-sheaf-radical-ideals",		shape=box];	"thm:structure-sheaf-property"	[label="structure-sheaf-property",		shape=ellipse];	"def:structure-sheaf-radical-ideals" -> "thm:structure-sheaf-property"	[style=dashed];	"def:affine-scheme"	[label="affine-scheme",		shape=box];	"thm:structure-sheaf-property" -> "def:affine-scheme"	[style=dashed];	"thm:affine-scheme-locally-ringed"	[label="affine-scheme-locally-ringed",		shape=ellipse];	"def:affine-scheme" -> "thm:affine-scheme-locally-ringed"	[style=dashed];	"def:scheme-pointfree"	[label="scheme-pointfree",		shape=box];	"def:affine-scheme" -> "def:scheme-pointfree"	[style=dashed];	"def:morphism-affine-schemes"	[label="morphism-affine-schemes",		shape=box];	"def:affine-scheme" -> "def:morphism-affine-schemes"	[style=dashed];	"def:locally-ringed-locale"	[label="locally-ringed-locale",		shape=box];	"def:locally-ringed-locale" -> "def:affine-scheme"	[style=dashed];	"def:irreducible-scheme"	[label="irreducible-scheme",		shape=box];	"def:scheme-pointfree" -> "def:irreducible-scheme"	[style=dashed];	"thm:universal-property-schemes"	[label="universal-property-schemes",		shape=ellipse];	"def:scheme-pointfree" -> "thm:universal-property-schemes"	[style=dashed];	"def:morphism-affine-schemes" -> "thm:universal-property-schemes"	[style=dashed];	"thm:ring-hom-to-scheme-morphism"	[label="ring-hom-to-scheme-morphism",		shape=ellipse];	"def:morphism-affine-schemes" -> "thm:ring-hom-to-scheme-morphism"	[style=dashed];	"lemma:universal-property-presented-frame"	[label="universal-property-presented-frame",		shape=ellipse];	"cor:characterization-presented-frame"	[label="characterization-presented-frame",		shape=ellipse];	"lemma:universal-property-presented-frame" -> "cor:characterization-presented-frame"	[style=dashed];	"def:stalk-locale"	[label="stalk-locale",		shape=box];	"def:closed-sublocale"	[label="closed-sublocale",		shape=box];	"lemma:closed-sublocales-unions"	[label="closed-sublocales-unions",		shape=ellipse];	"def:closed-sublocale" -> "lemma:closed-sublocales-unions"	[style=dashed];	"lemma:cover-criterion-basic-opens"	[label="cover-criterion-basic-opens",		shape=ellipse];	"lemma:preserve-finite-meets"	[label="preserve-finite-meets",		shape=ellipse];	"thm:phi-star-frame-homomorphism"	[label="phi-star-frame-homomorphism",		shape=ellipse];	"lemma:preserve-finite-meets" -> "thm:phi-star-frame-homomorphism"	[style=dashed];	"thm:functoriality-spec"	[label="functoriality-spec",		shape=ellipse];	"thm:phi-star-frame-homomorphism" -> "thm:functoriality-spec"	[style=dashed];	"thm:functoriality-spec" -> "thm:ring-hom-to-scheme-morphism"	[style=dashed];	"lemma:preserve-arbitrary-joins"	[label="preserve-arbitrary-joins",		shape=ellipse];	"lemma:preserve-arbitrary-joins" -> "thm:phi-star-frame-homomorphism"	[style=dashed];	"lemma:prime-frame-criterion"	[label="prime-frame-criterion",		shape=ellipse];	"def:presented-frame"	[color=blue,		fillcolor="#A3D6FF",		label="presented-frame",		shape=box,		style=filled];	"def:presented-frame" -> "lemma:universal-property-presented-frame"	[style=dashed];	"thm:zariski-frame-presentation"	[label="zariski-frame-presentation",		shape=ellipse];	"def:presented-frame" -> "thm:zariski-frame-presentation"	[style=dashed];	"def:pushforward-ideals"	[color=blue,		fillcolor="#A3D6FF",		label="pushforward-ideals",		shape=box,		style=filled];	"lemma:radical-image"	[label="radical-image",		shape=ellipse];	"def:pushforward-ideals" -> "lemma:radical-image"	[style=dashed];	"def:induced-frame-homomorphism"	[label="induced-frame-homomorphism",		shape=box];	"def:pushforward-ideals" -> "def:induced-frame-homomorphism"	[style=dashed];	"def:induced-frame-homomorphism" -> "lemma:preserve-finite-meets"	[style=dashed];	"def:induced-frame-homomorphism" -> "lemma:preserve-arbitrary-joins"	[style=dashed];	"lemma:preserve-top"	[label="preserve-top",		shape=ellipse];	"def:induced-frame-homomorphism" -> "lemma:preserve-top"	[style=dashed];	"lemma:identity-homomorphism"	[label="identity-homomorphism",		shape=ellipse];	"def:induced-frame-homomorphism" -> "lemma:identity-homomorphism"	[style=dashed];	"lemma:preserve-top" -> "thm:phi-star-frame-homomorphism"	[style=dashed];	"lemma:identity-homomorphism" -> "thm:functoriality-spec"	[style=dashed];	"lemma:restriction-maps-well-defined"	[label="restriction-maps-well-defined",		shape=ellipse];	"lemma:restriction-compose"	[label="restriction-compose",		shape=ellipse];	"lemma:restriction-maps-well-defined" -> "lemma:restriction-compose"	[style=dashed];	"thm:radical-complete-lattice"	[label="radical-complete-lattice",		shape=ellipse];	"cor:radical-frame"	[label="radical-frame",		shape=ellipse];	"thm:radical-complete-lattice" -> "cor:radical-frame"	[style=dashed];	"def:locale"	[color=blue,		fillcolor="#A3D6FF",		label=locale,		shape=box,		style=filled];	"def:locale" -> "def:locally-ringed-locale"	[style=dashed];	"def:locale" -> "def:closed-sublocale"	[style=dashed];	"def:open-sublocale"	[label="open-sublocale",		shape=box];	"def:locale" -> "def:open-sublocale"	[style=dashed];	"lemma:locale-morphism-composition"	[label="locale-morphism-composition",		shape=ellipse];	"def:locale" -> "lemma:locale-morphism-composition"	[style=dashed];	"def:irreducible-locale"	[label="irreducible-locale",		shape=box];	"def:locale" -> "def:irreducible-locale"	[style=dashed];	"def:radical-ideal"	[color=blue,		fillcolor="#A3D6FF",		label="radical-ideal",		shape=box,		style=filled];	"def:radical-ideal" -> "def:closed-sublocale"	[style=dashed];	"def:radical-ideal" -> "lemma:radical-image"	[style=dashed];	"def:basic-open-set"	[label="basic-open-set",		shape=box];	"def:radical-ideal" -> "def:basic-open-set"	[style=dashed];	"lemma:intersection-radical"	[label="intersection-radical",		shape=ellipse];	"def:radical-ideal" -> "lemma:intersection-radical"	[style=dashed];	"def:radical-ideal-operations"	[label="radical-ideal-operations",		shape=box];	"def:radical-ideal" -> "def:radical-ideal-operations"	[style=dashed];	"def:prime-ideal"	[label="prime-ideal",		shape=box];	"def:radical-ideal" -> "def:prime-ideal"	[style=dashed];	"lemma:product-radical-property"	[label="product-radical-property",		shape=ellipse];	"def:radical-ideal" -> "lemma:product-radical-property"	[style=dashed];	"def:structure-sheaf-zariski"	[label="structure-sheaf-zariski",		shape=box];	"def:basic-open-set" -> "def:structure-sheaf-zariski"	[style=dashed];	"lemma:radical-membership-basic-open"	[label="radical-membership-basic-open",		shape=ellipse];	"def:basic-open-set" -> "lemma:radical-membership-basic-open"	[style=dashed];	"lemma:basic-open-properties"	[label="basic-open-properties",		shape=ellipse];	"def:basic-open-set" -> "lemma:basic-open-properties"	[style=dashed];	"lemma:basic-open-radical"	[label="basic-open-radical",		shape=ellipse];	"def:basic-open-set" -> "lemma:basic-open-radical"	[style=dashed];	"cor:arbitrary-intersection-radical"	[label="arbitrary-intersection-radical",		shape=ellipse];	"lemma:intersection-radical" -> "cor:arbitrary-intersection-radical"	[style=dashed];	"thm:radical-frame-distributivity"	[label="radical-frame-distributivity",		shape=ellipse];	"def:radical-ideal-operations" -> "thm:radical-frame-distributivity"	[style=dashed];	"lemma:join-radical-ideals"	[label="join-radical-ideals",		shape=ellipse];	"def:radical-ideal-operations" -> "lemma:join-radical-ideals"	[style=dashed];	"def:prime-ideal" -> "lemma:prime-frame-criterion"	[style=dashed];	"thm:prime-ideals-specialization"	[label="prime-ideals-specialization",		shape=ellipse];	"def:prime-ideal" -> "thm:prime-ideals-specialization"	[style=dashed];	"lemma:product-radical-property" -> "lemma:preserve-finite-meets"	[style=dashed];	"lemma:product-radical-property" -> "thm:radical-frame-distributivity"	[style=dashed];	"def:structure-sheaf-zariski" -> "def:structure-sheaf-radical-ideals"	[style=dashed];	"def:structure-sheaf-zariski" -> "lemma:restriction-maps-well-defined"	[style=dashed];	"lemma:radical-membership-basic-open" -> "lemma:cover-criterion-basic-opens"	[style=dashed];	"lemma:basic-open-properties" -> "thm:zariski-frame-presentation"	[style=dashed];	"lemma:basic-open-meet-join"	[label="basic-open-meet-join",		shape=ellipse];	"lemma:basic-open-properties" -> "lemma:basic-open-meet-join"	[style=dashed];	"cor:arbitrary-intersection-radical" -> "thm:radical-complete-lattice"	[style=dashed];	"thm:radical-frame-distributivity" -> "cor:radical-frame"	[style=dashed];	"lemma:join-radical-ideals" -> "thm:radical-complete-lattice"	[style=dashed];	"def:localization-element"	[color=blue,		fillcolor="#A3D6FF",		label="localization-element",		shape=box,		style=filled];	"def:localization-element" -> "def:structure-sheaf-zariski"	[style=dashed];	"lemma:localization-properties"	[label="localization-properties",		shape=ellipse];	"def:localization-element" -> "lemma:localization-properties"	[style=dashed];	"def:frame-homomorphism"	[color=blue,		fillcolor="#A3D6FF",		label="frame-homomorphism",		shape=box,		style=filled];	"def:frame-homomorphism" -> "lemma:universal-property-presented-frame"	[style=dashed];	"def:frame-homomorphism" -> "lemma:locale-morphism-composition"	[style=dashed];	"def:frame"	[color=blue,		fillcolor="#A3D6FF",		label=frame,		shape=box,		style=filled];	"def:prime-frame-element"	[label="prime-frame-element",		shape=box];	"def:frame" -> "def:prime-frame-element"	[style=dashed];	"def:prime-frame-element" -> "lemma:prime-frame-criterion"	[style=dashed];	"def:sheaf-locale"	[color=blue,		fillcolor="#A3D6FF",		label="sheaf-locale",		shape=box,		style=filled];	"def:sheaf-locale" -> "def:locally-ringed-locale"	[style=dashed];	"def:sheaf-locale" -> "def:stalk-locale"	[style=dashed];}`)
     .on("end", interactive);
 
 latexLabelEscaper = function(label) {
