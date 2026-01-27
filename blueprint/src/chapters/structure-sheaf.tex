@@ -4,9 +4,10 @@
 
 \begin{definition}[Sheaf on a Locale]
   \label{def:sheaf-locale}
-  
-  Let $L$ be a frame (viewed as a category with objects being elements of $L$ and morphisms being 
-  the order relations $u \leq v$). A \emph{sheaf on $L$ with values in a category $\mathcal{C}$} is a 
+  \lean{PointlessScheme.LocaleSheaf}
+
+  Let $L$ be a frame (viewed as a category with objects being elements of $L$ and morphisms being
+  the order relations $u \leq v$). A \emph{sheaf on $L$ with values in a category $\mathcal{C}$} is a
   functor $\mathcal{F}: L^{\mathrm{op}} \to \mathcal{C}$ such that for every family $(u_i)_{i \in I}$ with $\bigvee_i u_i = u$:
   $$\mathcal{F}(u) \to \prod_i \mathcal{F}(u_i) \rightrightarrows \prod_{i,j} \mathcal{F}(u_i \land u_j)$$
   is an equalizer diagram in $\mathcal{C}$.
@@ -15,7 +16,7 @@
 \begin{remark}[Sheaf Exactness]
   \label{remark:sheaf-exactness}
   \uses{def:sheaf-locale}
-  The equalizer condition states that a section $s \in \mathcal{F}(u)$ is uniquely determined by its restrictions 
+  The equalizer condition states that a section $s \in \mathcal{F}(u)$ is uniquely determined by its restrictions
   to the basic opens $(u_i)_{i \in I}$, and any compatible family of sections on the opens glues to a unique global section.
 \end{remark}
 
@@ -23,7 +24,9 @@
 
 \begin{definition}[Localization of a Ring at an Element]
   \label{def:localization-element}
-  
+  \lean{Localization.Away}
+  \leanok
+
   For $f \in R$, define $R_f$ as the localization of $R$ at the multiplicative set $\{1, f, f^2, \ldots\}$:
   $$R_f := \{r/f^k : r \in R, k \in \mathbb{N}\}$$
   with the obvious ring operations.
@@ -31,8 +34,10 @@
 
 \begin{lemma}[Basic Properties of Localizations]
   \label{lemma:localization-properties}
+  \lean{Localization.Away.instCommRing, IsLocalization.Away.invSelf}
+  \leanok
   \uses{def:localization-element}
-  
+
   \begin{enumerate}
     \item There is a canonical ring homomorphism $\iota_f: R \to R_f$ sending $r \mapsto r/1$.
     \item If $f$ is a unit in $R$, then $R_f = R$.
@@ -43,60 +48,63 @@
 \begin{proof}
   \begin{enumerate}
     \item The map is given by $r \mapsto r/1 = r \cdot (1/1)$, which is a ring homomorphism by the universal property of localization.
-    
+
     \item If $f$ is a unit with inverse $f^{-1}$, then $1/f^k = (f^{-1})^k$ is in $R$, so $R_f = R$.
-    
-    \item If $f^n = 0$, then for any $r/f^k$, taking $m \geq n$: $(r/f^k) \cdot (1/f^m) = r/f^{k+m}$ is defined, 
-    and we can kill any denominator. Actually, we need to show every element is zero. 
-    If $f^n = 0$ and $m \geq n$, then $f^m = 0$, so $r/f^m = r \cdot 0 = 0$ formally. 
+
+    \item If $f^n = 0$, then for any $r/f^k$, taking $m \geq n$: $(r/f^k) \cdot (1/f^m) = r/f^{k+m}$ is defined,
+    and we can kill any denominator. Actually, we need to show every element is zero.
+    If $f^n = 0$ and $m \geq n$, then $f^m = 0$, so $r/f^m = r \cdot 0 = 0$ formally.
     Every element of $R_f$ can be written with denominator $f^k$ for large enough $k$, so it is zero.
   \end{enumerate}
 \end{proof}
 
 \begin{definition}[Structure Sheaf on Zariski Locale]
   \label{def:structure-sheaf-zariski}
+  \lean{PointlessScheme.StructureSheaf}
   \uses{def:basic-open-set, def:localization-element}
-  
+
   Define $\mathcal{O}_{\mathrm{Spec} R}$ on the basic opens by:
   $$\mathcal{O}_{\mathrm{Spec} R}(D(f)) := R_f$$
-  
+
   For a inclusion $D(f) \leq D(g)$ (i.e., $f \in \sqrt{(g)}$, so $f^n = rg$ for some $r$ and $n \geq 1$):
   $$\rho_{g,f}: R_g \to R_f, \quad \frac{a}{g^k} \mapsto \frac{a r^k}{f^{nk}}$$
 \end{definition}
 
 \begin{lemma}[Restriction Maps are Well-Defined]
   \label{lemma:restriction-maps-well-defined}
+  \lean{PointlessScheme.StructureSheaf.res}
   \uses{def:structure-sheaf-zariski}
-  
+
   For $f \in \sqrt{(g)}$ (so $f^n = rg$), the map $\rho_{g,f}$ is a well-defined ring homomorphism.
 \end{lemma}
 
 \begin{proof}
-  \textbf{Well-defined:} If $\frac{a}{g^k} = \frac{a'}{g^{k'}}$ in $R_g$ (i.e., $g^m(a g^{k'} - a' g^k) = 0$ for some $m$), 
+  \textbf{Well-defined:} If $\frac{a}{g^k} = \frac{a'}{g^{k'}}$ in $R_g$ (i.e., $g^m(a g^{k'} - a' g^k) = 0$ for some $m$),
   we need to show $\frac{ar^k}{f^{nk}} = \frac{a'r^k}{f^{nk'}}$ in $R_f$.
-  
+
   From $g^m(ag^{k'} - a'g^k) = 0$, we have $g^{m+k'}a = g^{m+k}a'$.
-  
+
   Substituting $g = f^n/r$:
   \begin{align*}
     (f^n/r)^{m+k'} a &= (f^n/r)^{m+k} a' \\
     \frac{f^{n(m+k')}}{r^{m+k'}} a &= \frac{f^{n(m+k)}}{r^{m+k}} a'
   \end{align*}
-  
+
   Multiply both sides by $r^{m+k'}$ and divide by $f^{n(m+k')}$:
   \begin{align*}
     a &= \frac{r^{m+k'}}{r^{m+k}} \cdot \frac{f^{n(m+k)}}{f^{n(m+k')}} a' = r \cdot f^{-n} a'
   \end{align*}
-  
+
   So $ar^k f^{-nk} = a' r^k f^{-nk'}$ in $R_f$.
-  
+
   \textbf{Ring homomorphism:} $\rho_{g,f}$ preserves addition, multiplication, and the unit by the homomorphism properties of localization.
 \end{proof}
 
 \begin{lemma}[Restriction Maps Compose]
   \label{lemma:restriction-compose}
+  \lean{PointlessScheme.StructureSheaf.res_comp}
   \uses{def:structure-sheaf-zariski, lemma:restriction-maps-well-defined}
-  
+
   For $D(f) \leq D(g) \leq D(h)$, the restriction maps satisfy:
   $$\rho_{h,f} = \rho_{g,f} \circ \rho_{h,g}$$
 \end{lemma}
@@ -106,9 +114,9 @@
   \begin{align*}
     f^{nm} = r^m g^m = r^m s h
   \end{align*}
-  
+
   Taking $N = nm$ and $R_0 = r^m s$, we have $f^N = R_0 h$.
-  
+
   For $\frac{a}{h^k} \in R_h$:
   \begin{align*}
     \rho_{g,f}(\rho_{h,g}(\frac{a}{h^k})) &= \rho_{g,f}(\frac{as^k}{g^{mk}}) \\
@@ -121,41 +129,61 @@
 
 \begin{definition}[Extension to Arbitrary Radical Ideals]
   \label{def:structure-sheaf-radical-ideals}
+  \lean{PointlessScheme.StructureSheaf.sections}
   \uses{def:structure-sheaf-zariski, def:radical-ideal}
-  
+
   For a radical ideal $I \in \mathrm{Rad}(R)$, extend the structure sheaf by:
   $$\mathcal{O}_{\mathrm{Spec} R}(I) := \lim_{f \in I} R_f$$
   the inverse limit of localizations as $f$ ranges over $I$.
-  
+
   For $I \leq J$ (i.e., $I \subseteq J$), the restriction map is induced by the universal property of limits.
 \end{definition}
 
 \begin{theorem}[Sheaf Property of the Structure Sheaf]
   \label{thm:structure-sheaf-property}
+  \lean{PointlessScheme.StructureSheaf.isSheaf}
   \uses{def:structure-sheaf-zariski, def:structure-sheaf-radical-ideals}
-  
+
   The structure sheaf $\mathcal{O}_{\mathrm{Spec} R}$ is a sheaf on the Zariski locale $\mathrm{Rad}(R)$.
 \end{theorem}
 
 \begin{proof}
-  We verify the equalizer condition. Let $(D(f_i))_{i \in I}$ be a family of basic opens with $\bigvee_i D(f_i) = D(f)$, 
+  We verify the equalizer condition. Let $(D(f_i))_{i \in I}$ be a family of basic opens with $\bigvee_i D(f_i) = D(f)$,
   i.e., $f \in \sqrt{(f_i : i \in I)}$, so $f^n = \sum_i r_i f_i$ for some $r_i \in R$ and $n \geq 1$.
-  
-  \textbf{Injectivity:} If $\alpha/f^k \in R_f$ restricts to zero in each $R_{f_i}$, then there exists $m_i$ with 
+
+  \textbf{Injectivity:} If $\alpha/f^k \in R_f$ restricts to zero in each $R_{f_i}$, then there exists $m_i$ with
   $f_i^{m_i} \alpha = 0$ in $R$.
-  
-  Since the $(f_i)$ generate the unit ideal in $R_f$ (i.e., $1 = \sum_i (r_i/f^n)(f_i/1)$ in $R_f$), 
+
+  Since the $(f_i)$ generate the unit ideal in $R_f$ (i.e., $1 = \sum_i (r_i/f^n)(f_i/1)$ in $R_f$),
   we can use this to show $\alpha = 0$ in $R_f$. Specifically, multiply by a high power to clear denominators.
-  
-  \textbf{Surjectivity (Gluing):} Given compatible elements $(\alpha_i/f_i^{k_i}) \in \prod_i R_{f_i}$ 
+
+  \textbf{Surjectivity (Gluing):} Given compatible elements $(\alpha_i/f_i^{k_i}) \in \prod_i R_{f_i}$
   (compatible means they agree on overlaps $D(f_i) \land D(f_j) = D(f_i f_j)$), we must construct a preimage in $R_f$.
-  
-  The compatibility says that on $D(f_i f_j)$, we have $\alpha_i/f_i^{k_i} = \alpha_j/f_j^{k_j}$, 
+
+  The compatibility says that on $D(f_i f_j)$, we have $\alpha_i/f_i^{k_i} = \alpha_j/f_j^{k_j}$,
   i.e., there exists $m_{ij}$ with $(f_i f_j)^{m_{ij}} (f_j^{k_j} \alpha_i - f_i^{k_i} \alpha_j) = 0$.
-  
+
   Use a partition of unity in $R_f$ (obtained from $f^n = \sum_i r_i f_i$) to glue:
   $$\alpha/f^N := \sum_i (r_i/f^n) \cdot (\alpha_i/f_i^{k_i}) \quad \text{(in } R_f\text{)}$$
-  
+
   This element restricts to $(\alpha_i/f_i^{k_i})$ on each $D(f_i)$ by the partition of unity property.
+\end{proof}
+
+\begin{lemma}[Stalk at a Point]
+  \label{lemma:stalk-at-point}
+  \lean{PointlessScheme.StructureSheaf.stalk}
+  \uses{def:structure-sheaf-zariski}
+
+  For a prime ideal $\mathfrak{p} \in \mathrm{Spec}(R)$, the stalk of $\mathcal{O}_{\mathrm{Spec} R}$ at $\mathfrak{p}$ is:
+  $$\mathcal{O}_{\mathrm{Spec} R, \mathfrak{p}} \cong R_{\mathfrak{p}}$$
+  where $R_{\mathfrak{p}}$ is the localization of $R$ at $\mathfrak{p}$.
+\end{lemma}
+
+\begin{proof}
+  The stalk is the colimit $\varinjlim_{f \notin \mathfrak{p}} R_f$.
+
+  For $f \notin \mathfrak{p}$, we have $D(f) \not\subseteq \mathfrak{p}$, so $f$ is not in the prime ideal.
+
+  The colimit over all such $f$ is exactly $R_{\mathfrak{p}}$, by the universal property of localization.
 \end{proof}
 
