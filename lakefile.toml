@@ -1,12 +1,12 @@
 name = "pointless-scheme"
 version = "0.1.0"
-defaultTargets = ["pointless-scheme"]
+defaultTargets = ["pointless_scheme"]
 
 [[lean_lib]]
 name = "PointlessScheme"
 
 [[lean_exe]]
-name = "pointless-scheme"
+name = "pointless_scheme"
 root = "Main"
 
 [[require]]
