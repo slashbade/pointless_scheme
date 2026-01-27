@@ -1,4 +1,4 @@
-name = "pointless-scheme"
+name = "pointless_scheme"
 version = "0.1.0"
 defaultTargets = ["pointless_scheme"]
 
