@@ -1,4 +1,4 @@
 import PointlessScheme
 
 def main : IO Unit :=
-  IO.println s!"Hello, {hello}!"
+  IO.println "Pointless Scheme - A pointless approach to algebraic geometry"
