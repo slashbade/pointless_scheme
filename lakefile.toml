@@ -8,3 +8,7 @@ name = "PointlessScheme"
 [[lean_exe]]
 name = "pointless-scheme"
 root = "Main"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
