@@ -7,6 +7,7 @@ import Mathlib.RingTheory.Ideal.Operations
 import Mathlib.RingTheory.Nilpotent.Defs
 import Mathlib.Order.CompleteBooleanAlgebra
 import Mathlib.Order.Hom.CompleteLattice
+import Mathlib.LinearAlgebra.Finsupp.Span
 
 /-!
 # The Zariski Locale from Commutative Rings
@@ -169,9 +170,118 @@ noncomputable instance instCompleteLattice : CompleteLattice (Rad R) where
 theorem sqrt_mul_eq_inf (I J : Ideal R) : (I * J).radical = I.radical ⊓ J.radical := by
   exact radical_mul I J
 
+/-- Frame distributivity for radical ideals: J ⊓ sSup S ≤ sSup {J ⊓ L | L ∈ S}.
+    The key insight is that if x ∈ J and x^n ∈ ∑ Lᵢ, then x^(n+1) ∈ ∑ (J ∩ Lᵢ). -/
+theorem inf_sSup_le_iSup_inf (J : Rad R) (S : Set (Rad R)) :
+    J ⊓ sSup S ≤ ⨆ L ∈ S, J ⊓ L := by
+  intro x ⟨hxJ, hxS⟩
+  simp only [instSupSet] at hxS
+  obtain ⟨n, hn⟩ := hxS
+  -- hn : x^n ∈ sSup (Subtype.val '' S)
+  -- We show x ∈ ⨆ L ∈ S, J ⊓ L by showing x^(n+1) ∈ sSup {(J ⊓ L).val | L ∈ S}
+  have htarget : (⨆ L ∈ S, J ⊓ L : Rad R) = sSup ((fun L => J ⊓ L) '' S) := sSup_image.symm
+  rw [htarget]
+  simp only [instSupSet]
+  use n + 1
+  rw [pow_succ]
+  -- x^(n+1) = x^n * x, need this in sSup {(J ⊓ L).val | L ∈ S}
+  -- For any y in an ideal L ∈ S, y * x ∈ J ⊓ L (since x ∈ J, L is an ideal)
+  -- So multiplication by x sends sSup {L.val} into sSup {(J ⊓ L).val}
+  have hmul : ∀ y ∈ sSup (Subtype.val '' S),
+      y * x ∈ sSup (Subtype.val '' ((fun L : Rad R => (J ⊓ L : Rad R)) '' S)) := by
+    intro y hy
+    -- sSup is closed under addition, so it suffices to show this for generators
+    -- Use the characterization: y ∈ sSup S iff y is a finite combination
+    rw [Submodule.mem_sSup_iff_exists_finset] at hy ⊢
+    obtain ⟨s, hs, hys⟩ := hy
+    -- For each I ∈ s, we have I = L.val for some L ∈ S
+    -- We build the finset of J ⊓ L
+    classical
+    let t : Finset (Submodule R R) := s.image (fun I =>
+      (J.1 ⊓ I : Ideal R))
+    use t
+    constructor
+    · -- t ⊆ image of meets
+      intro I hI
+      -- hI : I ∈ (t : Set _), need to extract the image structure
+      simp only [Finset.mem_coe] at hI
+      rw [Finset.mem_image] at hI
+      obtain ⟨I', hI's, rfl⟩ := hI
+      have hI'_in : I' ∈ Subtype.val '' S := hs hI's
+      rw [Set.mem_image] at hI'_in
+      obtain ⟨L, hLS, rfl⟩ := hI'_in
+      rw [Set.mem_image]
+      refine ⟨⟨J.1 ⊓ L.1, J.2.inf L.2⟩, ⟨L, hLS, rfl⟩, rfl⟩
+    · -- y * x ∈ ⨆ i ∈ t, i
+      -- The key: ⨆ i ∈ t, i contains J.1 ⊓ I for all I ∈ s
+      have hsub : (⨆ (i : Submodule R R) (_ : i ∈ s), (J.1 ⊓ i : Ideal R)) ≤ ⨆ i ∈ t, i := by
+        apply iSup₂_le
+        intro I hI
+        apply le_iSup_of_le ((J.1 ⊓ I : Ideal R))
+        apply le_iSup_of_le (by rw [Finset.mem_image]; exact ⟨I, hI, rfl⟩)
+        exact le_refl _
+      apply hsub
+      -- Now show y * x ∈ ⨆ i ∈ s, J.1 ⊓ i
+      -- Use that y ∈ ⨆ i ∈ s, i and for each piece from I, multiplying by x gives J ⊓ I
+      -- Convert biSup to iSup over Subtype
+      rw [show (⨆ (i : Submodule R R) (_ : i ∈ s), (i : Submodule R R)) =
+          ⨆ (i : s), (i.1 : Submodule R R) by simp [iSup_subtype]] at hys
+      rw [show (⨆ (i : Submodule R R) (_ : i ∈ s), (J.1 ⊓ i : Ideal R)) =
+          ⨆ (i : s), (J.1 ⊓ i.1 : Ideal R) by simp [iSup_subtype]]
+      refine Submodule.iSup_induction (ι := s) (p := fun i => i.1)
+          (motive := fun y => y * x ∈ ⨆ (i : s), (J.1 ⊓ i.1 : Ideal R)) hys ?_ ?_ ?_
+      · -- For y ∈ I.1 where I : s, show y * x ∈ ⨆ i : s, J.1 ⊓ i.1
+        intro ⟨I, hI⟩ y hy
+        apply Submodule.mem_iSup_of_mem ⟨I, hI⟩
+        -- y ∈ I, x ∈ J, so y * x ∈ J ⊓ I
+        constructor
+        · exact J.1.mul_mem_left y hxJ
+        · -- y ∈ I and I is from S, hence an ideal
+          have hI_ideal : I ∈ Subtype.val '' S := hs hI
+          simp only [Set.mem_image] at hI_ideal
+          obtain ⟨L, _, rfl⟩ := hI_ideal
+          exact L.1.mul_mem_right x hy
+      · simp only [zero_mul, Submodule.zero_mem]
+      · intro y z hy hz
+        rw [add_mul]
+        exact Submodule.add_mem _ hy hz
+  exact hmul (x ^ n) hn
+
+/-- Heyting implication for radical ideals: I ⇨ J = ⨆ {K | I ⊓ K ≤ J}. -/
+noncomputable instance instHImp : HImp (Rad R) :=
+  ⟨fun I J => sSup { K | I ⊓ K ≤ J }⟩
+
+/-- Complement for radical ideals. -/
+noncomputable instance instCompl : Compl (Rad R) :=
+  ⟨fun I => I ⇨ ⊥⟩
+
 /-- Radical ideals form a frame.
     Blueprint: Corollary 2.9 (cor:radical-frame) -/
-noncomputable instance instFrame : Order.Frame (Rad R) := sorry
+noncomputable instance instFrame : Order.Frame (Rad R) where
+  himp := (· ⇨ ·)
+  le_himp_iff := fun I J K => by
+    constructor
+    · -- I ≤ J ⇨ K implies I ⊓ J ≤ K
+      intro hle
+      calc I ⊓ J = J ⊓ I := inf_comm (a := I) (b := J)
+        _ ≤ J ⊓ (J ⇨ K) := inf_le_inf_left J hle
+        _ ≤ K := by
+          simp only [instHImp]
+          -- Use frame distributivity
+          calc J ⊓ sSup {L | J ⊓ L ≤ K} ≤ ⨆ L ∈ {L | J ⊓ L ≤ K}, J ⊓ L :=
+                inf_sSup_le_iSup_inf J _
+            _ ≤ K := by
+              apply iSup₂_le
+              intro L hL
+              exact hL
+    · -- I ⊓ J ≤ K implies I ≤ J ⇨ K
+      intro hle
+      apply le_sSup
+      simp only [Set.mem_setOf_eq]
+      calc J ⊓ I = I ⊓ J := inf_comm (a := J) (b := I)
+        _ ≤ K := hle
+  compl := (·ᶜ)
+  himp_bot := fun I => rfl
 
 /-! ### Basic Open Sets -/
 
@@ -201,15 +311,88 @@ theorem basicOpen_one : basicOpen (1 : R) = ⊤ := by
 /-- `D(0) = ⊥`.
     Blueprint: Lemma 2.12 (lemma:basic-open-properties) item 2 -/
 @[simp]
-theorem basicOpen_zero : basicOpen (0 : R) = ⊥ := sorry
+theorem basicOpen_zero : basicOpen (0 : R) = ⊥ := by
+  apply ext
+  intro x
+  simp only [basicOpen, instBot]
+  constructor
+  · intro hx
+    -- x ∈ √(0) means x^n = 0 for some n, which is exactly the nilradical
+    simp only [Ideal.span_singleton_eq_bot.mpr rfl] at hx
+    exact hx
+  · intro hx
+    simp only [Ideal.span_singleton_eq_bot.mpr rfl]
+    exact hx
 
 /-- `D(fg) = D(f) ⊓ D(g)`.
     Blueprint: Lemma 2.12 (lemma:basic-open-properties) item 3 -/
-theorem basicOpen_mul (f g : R) : basicOpen (f * g) = basicOpen f ⊓ basicOpen g := sorry
+theorem basicOpen_mul (f g : R) : basicOpen (f * g) = basicOpen f ⊓ basicOpen g := by
+  apply ext
+  intro x
+  simp only [basicOpen, instInf]
+  -- Need: x ∈ √(fg) ↔ x ∈ √(f) ∩ √(g)
+  constructor
+  · intro hx
+    obtain ⟨n, hn⟩ := hx
+    rw [Ideal.mem_span_singleton] at hn
+    obtain ⟨c, hc⟩ := hn
+    -- hc : x ^ n = f * g * c
+    constructor
+    · -- x ∈ √(f): need x^m ∈ (f) for some m
+      use n
+      rw [Ideal.mem_span_singleton]
+      exact ⟨g * c, by rw [hc]; ring⟩
+    · -- x ∈ √(g): need x^m ∈ (g) for some m
+      use n
+      rw [Ideal.mem_span_singleton]
+      exact ⟨f * c, by rw [hc]; ring⟩
+  · intro ⟨hf, hg⟩
+    obtain ⟨n, hn⟩ := hf
+    obtain ⟨m, hm⟩ := hg
+    rw [Ideal.mem_span_singleton] at hn hm
+    obtain ⟨a, ha⟩ := hn
+    obtain ⟨b, hb⟩ := hm
+    -- ha : x^n = f * a and hb : x^m = g * b, so x^(n+m) = (f*g) * (a*b)
+    use n + m
+    rw [Ideal.mem_span_singleton]
+    use a * b
+    calc x ^ (n + m) = x ^ n * x ^ m := pow_add x n m
+      _ = (f * a) * (g * b) := by rw [ha, hb]
+      _ = f * g * (a * b) := by ring
 
 /-- `D(f^n) = D(f)` for `n ≥ 1`.
     Blueprint: Lemma 2.12 (lemma:basic-open-properties) item 4 -/
-theorem basicOpen_pow (f : R) {n : ℕ} (hn : 0 < n) : basicOpen (f ^ n) = basicOpen f := sorry
+theorem basicOpen_pow (f : R) {n : ℕ} (hn : 0 < n) : basicOpen (f ^ n) = basicOpen f := by
+  apply ext
+  intro x
+  simp only [basicOpen]
+  constructor
+  · -- x ∈ √(f^n) → x ∈ √(f)
+    intro ⟨m, hm⟩
+    rw [Ideal.mem_span_singleton] at hm
+    obtain ⟨c, hc⟩ := hm
+    -- x^m = f^n * c, so x^m ∈ (f) since f^n = f * f^(n-1)
+    use m
+    rw [Ideal.mem_span_singleton]
+    use c * f ^ (n - 1)
+    obtain ⟨k, hk⟩ := Nat.exists_eq_succ_of_ne_zero (Nat.pos_iff_ne_zero.mp hn)
+    have hk' : k = n - 1 := by omega
+    calc x ^ m = f ^ n * c := hc
+      _ = f ^ (k + 1) * c := by rw [hk]
+      _ = f * f ^ k * c := by rw [pow_succ']
+      _ = f * (c * f ^ k) := by ring
+      _ = f * (c * f ^ (n - 1)) := by rw [hk']
+  · -- x ∈ √(f) → x ∈ √(f^n)
+    intro ⟨m, hm⟩
+    rw [Ideal.mem_span_singleton] at hm
+    obtain ⟨c, hc⟩ := hm
+    -- x^m = f * c, so x^(m*n) = f^n * c^n ∈ (f^n)
+    use m * n
+    rw [Ideal.mem_span_singleton]
+    use c ^ n
+    calc x ^ (m * n) = (x ^ m) ^ n := by rw [pow_mul]
+      _ = (f * c) ^ n := by rw [hc]
+      _ = f ^ n * c ^ n := by rw [mul_pow]
 
 /-- `D(f) ⊓ D(g) = D(fg)`.
     Blueprint: Lemma 2.13 (lemma:basic-open-meet-join) item 1 -/
@@ -219,12 +402,98 @@ theorem basicOpen_inf (f g : R) : basicOpen f ⊓ basicOpen g = basicOpen (f * g
 /-- Membership in radical iff basic open is contained.
     Blueprint: Lemma 2.14 (lemma:radical-membership-basic-open) -/
 theorem mem_radical_iff_basicOpen_le {f : R} {I : Rad R} :
-    f ∈ (I : Ideal R).radical ↔ basicOpen f ≤ I := sorry
+    f ∈ (I : Ideal R).radical ↔ basicOpen f ≤ I := by
+  -- f ∈ √I ↔ D(f) = √(f) ⊆ I
+  constructor
+  · -- (→) f ∈ √I implies √(f) ⊆ I
+    intro hf x hx
+    -- x ∈ √(f) means x^n ∈ (f) for some n
+    obtain ⟨n, hn⟩ := hx
+    rw [Ideal.mem_span_singleton] at hn
+    obtain ⟨c, hc⟩ := hn
+    -- hc : x^n = f * c
+    -- Since f ∈ √I, we have f^m ∈ I for some m
+    obtain ⟨m, hm⟩ := hf
+    -- So x^(n*m) = (f * c)^m = f^m * c^m ∈ I
+    apply I.isRadical
+    use n * m
+    have heq : x ^ (n * m) = f ^ m * c ^ m := by
+      calc x ^ (n * m) = (x ^ n) ^ m := by rw [pow_mul]
+        _ = (f * c) ^ m := by rw [hc]
+        _ = f ^ m * c ^ m := mul_pow f c m
+    rw [heq]
+    exact I.1.mul_mem_right (c ^ m) hm
+  · -- (←) D(f) ⊆ I implies f ∈ √I
+    intro hle
+    -- Since f ∈ √(f) = D(f), and D(f) ⊆ I, we have f ∈ I ⊆ √I
+    have hf_in_basicOpen : f ∈ basicOpen f := by
+      simp only [basicOpen]
+      use 1
+      simp only [pow_one, Ideal.mem_span_singleton]
+      use 1
+      ring
+    have hf_in_I : f ∈ (I : Ideal R) := hle hf_in_basicOpen
+    exact le_radical hf_in_I
 
 /-- Cover criterion for basic opens.
     Blueprint: Lemma 2.15 (lemma:cover-criterion-basic-opens) -/
 theorem cover_iff {f : R} {S : Set R} :
-    basicOpen f ≤ sSup (basicOpen '' S) ↔ f ∈ (Ideal.span S).radical := sorry
+    basicOpen f ≤ sSup (basicOpen '' S) ↔ f ∈ (Ideal.span S).radical := by
+  -- D(f) ≤ ⨆ (g ∈ S), D(g) ↔ f ∈ √(span S)
+  -- Key: sSup (basicOpen '' S) = √(sSup {√(g) : g ∈ S}) and this equals √(span S)
+  have hsup_eq : (sSup (basicOpen '' S) : Rad R) =
+      ⟨(Ideal.span S).radical, radical_isRadical _⟩ := by
+    apply ext
+    intro x
+    simp only [instSupSet]
+    -- x ∈ √(sSup {√(g) : g ∈ S}) ↔ x ∈ √(span S)
+    constructor
+    · -- (→) √(sSup {√(g) : g ∈ S}) ⊆ √(span S)
+      intro hx
+      -- Each √(g) ⊆ √(span S) since g ∈ span S
+      -- So sSup {√(g)} ⊆ √(span S) (since √(span S) is radical, hence closed under sSup)
+      -- Hence √(sSup {√(g)}) ⊆ √(√(span S)) = √(span S)
+      have h1 : sSup (Subtype.val '' (basicOpen '' S)) ≤ (Ideal.span S).radical := by
+        apply sSup_le
+        intro I hI
+        simp only [Set.mem_image] at hI
+        obtain ⟨J, hJ, rfl⟩ := hI
+        obtain ⟨g, hg, rfl⟩ := hJ
+        -- J = √(g), need √(g) ⊆ √(span S)
+        apply radical_mono
+        rw [Ideal.span_singleton_le_iff_mem]
+        exact Ideal.subset_span hg
+      have h2 : (sSup (Subtype.val '' (basicOpen '' S))).radical ≤
+          ((Ideal.span S).radical).radical := radical_mono h1
+      rw [(radical_isRadical _).radical] at h2
+      exact h2 hx
+    · -- (←)
+      intro hx
+      apply radical_mono _ hx
+      intro y hy
+      rw [Ideal.mem_span] at hy
+      apply hy
+      intro g hg
+      apply Ideal.mem_sSup_of_mem
+      · use basicOpen g
+        simp only [Set.mem_image]
+        exact ⟨⟨g, hg, rfl⟩, rfl⟩
+      · use 1
+        simp only [pow_one, Ideal.mem_span_singleton]
+        use 1
+        ring
+  rw [hsup_eq]
+  -- Now: D(f) ≤ √(span S) ↔ f ∈ √(span S)
+  -- This follows from mem_radical_iff_basicOpen_le (with I = √(span S))
+  have h : basicOpen f ≤ ⟨(Ideal.span S).radical, radical_isRadical _⟩ ↔
+      f ∈ ((⟨(Ideal.span S).radical, radical_isRadical _⟩ : Rad R) : Ideal R).radical := by
+    exact mem_radical_iff_basicOpen_le.symm
+  rw [h]
+  -- f ∈ √(√(span S)) ↔ f ∈ √(span S)
+  have hrad : ((⟨(Ideal.span S).radical, radical_isRadical _⟩ : Rad R) : Ideal R).radical =
+      (Ideal.span S).radical := by
+    exact (radical_isRadical _).radical
+  rw [hrad]
 
 /-! ### Frame Presentation of the Zariski Locale -/
 
