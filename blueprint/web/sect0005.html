@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Schemes as Locally Ringed Locales</title>
+<link rel="next" href="sect0006.html" title="Basic Properties of Schemes" />
+<link rel="prev" href="sect0004.html" title="The Structure Sheaf" />
+<link rel="up" href="index.html" title="Pointless Schemes" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Pointless Schemes</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Foundational Locale Theory</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0001.html#a0000000008"><span class="toc_ref">1.1</span> <span class="toc_entry">Frames and Basic Structure</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000012"><span class="toc_ref">1.2</span> <span class="toc_entry">Frame Presentations</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">The Zariski Locale from Commutative Rings</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0002.html#a0000000015"><span class="toc_ref">2.1</span> <span class="toc_entry">Radical Ideals as a Frame</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000016"><span class="toc_ref">2.2</span> <span class="toc_entry">Frame Distributivity for Radical Ideals</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000017"><span class="toc_ref">2.3</span> <span class="toc_entry">Basic Open Sets</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000018"><span class="toc_ref">2.4</span> <span class="toc_entry">Frame Presentation of the Zariski Locale</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Functoriality and Ring Homomorphisms</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0003.html#a0000000019"><span class="toc_ref">3.1</span> <span class="toc_entry">Functorial Behavior of Spec</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000020"><span class="toc_ref">3.2</span> <span class="toc_entry">Functorial Properties</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">The Structure Sheaf</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0004.html#a0000000021"><span class="toc_ref">4.1</span> <span class="toc_entry">Sheaves on Locales</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000022"><span class="toc_ref">4.2</span> <span class="toc_entry">The Structure Sheaf on Zariski Locales</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class=" active current">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Schemes as Locally Ringed Locales</span></a>
+  <span class="expand-toc">▼</span>
+  <ul class="sub-toc-1 active">
+     <li class="">
+  <a href="sect0005.html#a0000000023"><span class="toc_ref">5.1</span> <span class="toc_entry">Locally Ringed Locales</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000024"><span class="toc_ref">5.2</span> <span class="toc_entry">Affine Schemes</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000025"><span class="toc_ref">5.3</span> <span class="toc_entry">Morphisms of Schemes</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000026"><span class="toc_ref">5.4</span> <span class="toc_entry">Gluing and General Schemes</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">Basic Properties of Schemes</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0006.html#a0000000027"><span class="toc_ref">6.1</span> <span class="toc_entry">Open and Closed Sublocales</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html#a0000000028"><span class="toc_ref">6.2</span> <span class="toc_entry">Irreducibility and Primeness</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html#a0000000029"><span class="toc_ref">6.3</span> <span class="toc_entry">Irreducible Schemes</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000006">5 Schemes as Locally Ringed Locales</h1>
+<h1 id="a0000000023">5.1 Locally Ringed Locales</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def:locally-ringed-locale">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">43</span>
+    <span class="definition_thmtitle">Locally Ringed Locale</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#def:locally-ringed-locale">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#def:locale">Definition 4</a></li>
+          
+          <li><a href="sect0004.html#def:sheaf-locale">Definition 34</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/LocallyRingedLocale" class="lean_decl">LocallyRingedLocale</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>    A <em>locally ringed locale</em> is a pair \((X, \mathcal{O}_X)\) where: </p>
+<ol class="enumerate">
+  <li><p>\(X\) is a locale (a frame) </p>
+</li>
+  <li><p>\(\mathcal{O}_X\) is a sheaf of rings on \(X\) </p>
+</li>
+  <li><p>For every open \(u \in X\), the stalk \(\mathcal{O}_{X,\bar{u}}\) is a local ring (has a unique maximal ideal) </p>
+</li>
+</ol>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:stalk-locale">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">44</span>
+    <span class="definition_thmtitle">Stalk in a Locale</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#def:stalk-locale">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#def:sheaf-locale">Definition 34</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Sheaf.stalk" class="lean_decl">Sheaf.stalk</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>    For a sheaf \(\mathcal{F}\) on a locale \(X\) and an element \(u \in X\), the <em>stalk</em> is defined as: </p>
+<div class="displaymath" id="a0000000094">
+  \[ \mathcal{F}_{\bar{u}} := \lim _{v \in \downarrow u} \mathcal{F}(v) \]
+</div>
+<p> where \(\downarrow u := \{ v \in X : v \leq u\} \) is the principal order filter at \(u\). </p>
+
+  </div>
+</div>
+<div class="remark_thmwrapper theorem-style-definition" id="remark:stalks-prime-elements">
+  <div class="remark_thmheading">
+    <span class="remark_thmcaption">
+    Remark
+    </span>
+    <span class="remark_thmlabel">45</span>
+    <span class="remark_thmtitle">Stalks at Prime Elements</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#remark:stalks-prime-elements">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def:stalk-locale">Definition 44</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="remark_thmcontent">
+  <p>   When \(u\) is a prime element in the frame (which exists for frames arising as radical ideals), the stalk has better properties. In the Zariski locale, these correspond to prime ideals. </p>
+
+  </div>
+</div>
+<h1 id="a0000000024">5.2 Affine Schemes</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def:affine-scheme">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">46</span>
+    <span class="definition_thmtitle">Affine Scheme</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#def:affine-scheme">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def:locally-ringed-locale">Definition 43</a></li>
+          
+          <li><a href="sect0004.html#def:structure-sheaf-zariski">Definition 38</a></li>
+          
+          <li><a href="sect0004.html#thm:structure-sheaf-property">Theorem 42</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/AffineScheme" class="lean_decl">AffineScheme</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>    An <em>affine scheme</em> is a locally ringed locale of the form \((\mathrm{Spec} R, \mathcal{O}_{\mathrm{Spec} R})\) for some commutative ring \(R\), where: </p>
+<ol class="enumerate">
+  <li><p>\(\mathrm{Spec} R = \mathrm{Rad}(R)\) is the Zariski locale </p>
+</li>
+  <li><p>\(\mathcal{O}_{\mathrm{Spec} R}\) is the structure sheaf constructed in <a href="sect0004.html#def:structure-sheaf-zariski">Definition 38</a> </p>
+</li>
+</ol>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:affine-scheme-locally-ringed">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">47</span>
+    <span class="theorem_thmtitle">Affine Schemes are Locally Ringed</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#thm:affine-scheme-locally-ringed">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000095"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def:affine-scheme">Definition 46</a></li>
+          
+          <li><a href="sect0005.html#def:locally-ringed-locale">Definition 43</a></li>
+          
+          <li><a href="sect0004.html#thm:structure-sheaf-property">Theorem 42</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/AffineScheme.locallyRinged" class="lean_decl">AffineScheme.locallyRinged</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    Every affine scheme \((\mathrm{Spec} R, \mathcal{O}_{\mathrm{Spec} R})\) is a locally ringed locale. </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000095">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>We need to verify that for every \(D(f) \in \mathrm{Spec} R\), the stalk \(\mathcal{O}_{\mathrm{Spec} R, \overline{D(f)}}\) is a local ring. </p>
+<p>The stalk at \(D(f)\) is: </p>
+<div class="displaymath" id="a0000000096">
+  \[ \mathcal{O}_{\mathrm{Spec} R, \overline{D(f)}} = \lim _{D(g) \leq D(f)} R_g \]
+</div>
+<p>This is an inverse limit of localizations. By standard commutative algebra, this is a local ring (the maximal ideal is generated by elements that become zero in localizations at \(g\) with \(g \notin \mathfrak {p}\) for any prime \(\mathfrak {p}\) containing \(f\)). </p>
+
+  </div>
+</div>
+<h1 id="a0000000025">5.3 Morphisms of Schemes</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def:morphism-affine-schemes">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">48</span>
+    <span class="definition_thmtitle">Morphism of Affine Schemes</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#def:morphism-affine-schemes">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def:affine-scheme">Definition 46</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/AffineScheme.Hom" class="lean_decl">AffineScheme.Hom</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>    A morphism of affine schemes from \(\mathrm{Spec} R\) to \(\mathrm{Spec} S\) is a morphism of locally ringed locales, i.e., a pair \((f_{\# }, f^{\sharp })\) where: </p>
+<ol class="enumerate">
+  <li><p>\(f_{\# }: \mathrm{Spec} R \to \mathrm{Spec} S\) is a locale morphism (i.e., a frame homomorphism \(f_{\# }^*: \mathrm{Rad}(S) \to \mathrm{Rad}(R)\)) </p>
+</li>
+  <li><p>\(f^{\sharp }: \mathcal{O}_S \to f_{\# *} \mathcal{O}_R\) is a morphism of sheaves of rings respecting the local ring structure </p>
+</li>
+</ol>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:ring-hom-to-scheme-morphism">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">49</span>
+    <span class="theorem_thmtitle">Ring Homomorphisms Induce Scheme Morphisms</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#thm:ring-hom-to-scheme-morphism">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000097"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def:morphism-affine-schemes">Definition 48</a></li>
+          
+          <li><a href="sect0003.html#thm:functoriality-spec">Theorem 33</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/AffineScheme.of_ringHom" class="lean_decl">AffineScheme.of_ringHom</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    Every ring homomorphism \(\phi : S \to R\) induces a morphism of affine schemes: </p>
+<div class="displaymath" id="a0000000098">
+  \[ \mathrm{Spec} \phi : \mathrm{Spec} R \to \mathrm{Spec} S \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000097">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Given \(\phi : S \to R\), the induced frame homomorphism \(\phi ^*: \mathrm{Rad}(S) \to \mathrm{Rad}(R)\) (from <a href="sect0003.html#def:induced-frame-homomorphism">Definition 26</a>) gives the locale morphism \(f_{\# }: \mathrm{Spec} R \to \mathrm{Spec} S\). </p>
+<p>For the sheaf morphism \(f^{\sharp }: \mathcal{O}_S \to f_{\# *}\mathcal{O}_R\), use the universal properties of localization and the functoriality of the structure sheaf. </p>
+
+  </div>
+</div>
+<h1 id="a0000000026">5.4 Gluing and General Schemes</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def:scheme-pointfree">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">50</span>
+    <span class="definition_thmtitle">Scheme (Pointfree)</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#def:scheme-pointfree">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def:locally-ringed-locale">Definition 43</a></li>
+          
+          <li><a href="sect0005.html#def:affine-scheme">Definition 46</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Scheme" class="lean_decl">Scheme</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>    A <em>scheme</em> is a locally ringed locale \((X, \mathcal{O}_X)\) such that \(X\) has an open cover \(\{ u_i : i \in I\} \) (where \(\bigvee _i u_i = \top \)) with the property that: </p>
+<ol class="enumerate">
+  <li><p>The restriction \((u_i, \mathcal{O}_X|_{u_i})\) to each open is isomorphic to an affine scheme \(\mathrm{Spec} R_i\) </p>
+</li>
+  <li><p>The transition functions between affine pieces are given by ring homomorphisms </p>
+</li>
+</ol>
+
+  </div>
+</div>
+<div class="remark_thmwrapper theorem-style-definition" id="remark:pointfree-gluing">
+  <div class="remark_thmheading">
+    <span class="remark_thmcaption">
+    Remark
+    </span>
+    <span class="remark_thmlabel">51</span>
+    <span class="remark_thmtitle">Pointfree Gluing</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#remark:pointfree-gluing">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def:scheme-pointfree">Definition 50</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="remark_thmcontent">
+  <p>   This definition is intrinsically pointfree: instead of patching together affine schemes along points, we patch together basic opens and use the distributive lattice structure of the Zariski locale to manage overlaps. </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:universal-property-schemes">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">52</span>
+    <span class="theorem_thmtitle">Universal Property of Schemes</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#thm:universal-property-schemes">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000099"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def:scheme-pointfree">Definition 50</a></li>
+          
+          <li><a href="sect0005.html#def:morphism-affine-schemes">Definition 48</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://slashbade.github.io/pointless-scheme/docs/find/#doc/Scheme.universal_property" class="lean_decl">Scheme.universal_property</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    Schemes form a category with morphisms being locale morphisms respecting the ringed structure. Affine schemes are the full subcategory of schemes admitting a single affine open cover. </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000099">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Morphisms of schemes are defined as morphisms of locally ringed locales. Composition and identities are inherited from the category of locales and sheaves. </p>
+<p>An affine scheme \(\mathrm{Spec} R\) has the full ring \(R\) as a single affine open (this corresponds to \(D(1) = \top \)). </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0004.html" title="The Structure Sheaf"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Pointless Schemes"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0006.html" title="Basic Properties of Schemes"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>
