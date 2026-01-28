@@ -5,7 +5,8 @@
 \begin{definition}[Open Sublocale]
   \label{def:open-sublocale}
   \uses{def:locale}
-  
+  \lean{OpenSublocale}
+  \leanok
   An open sublocale of a locale $X$ is determined by an open $u \in X$. 
   The frame of opens of the sublocale is:
   $$\mathcal{O}(u) := \{v \in X : v \leq u\} = \downarrow u$$
@@ -15,7 +16,8 @@
 \begin{definition}[Closed Sublocale]
   \label{def:closed-sublocale}
   \uses{def:locale, def:radical-ideal}
-  
+  \lean{ClosedSublocale}
+  \leanok
   A closed sublocale of $\mathrm{Spec} R$ corresponds to a radical ideal $I \in \mathrm{Rad}(R)$ and is denoted $V(I)$.
   The closed sublocale is:
   $$V(I) := \{J \in \mathrm{Rad}(R) : I \subseteq J\} = \uparrow I$$
@@ -25,7 +27,8 @@
 \begin{lemma}[Closed Sublocales are Closed under Unions]
   \label{lemma:closed-sublocales-unions}
   \uses{def:closed-sublocale}
-  
+  \lean{ClosedSublocale.closed_union}
+  \leanok
   Arbitrary intersections of closed sublocales are closed: if $(I_j)_{j \in J}$ are radical ideals, then $V(I_j)$ 
   are closed and $\bigcap_j V(I_j) = V(\sum_j I_j) = V(\bigvee_j I_j)$.
 \end{lemma}
@@ -40,14 +43,16 @@
 \begin{definition}[Prime Element in a Frame]
   \label{def:prime-frame-element}
   \uses{def:frame}
-  
+  \lean{IsPrimeElement}
+  \leanok
   An element $p$ of a frame $L$ is \emph{prime} if whenever $p \leq a \lor b$, we have $p \leq a$ or $p \leq b$.
 \end{definition}
 
 \begin{definition}[Prime Ideal]
   \label{def:prime-ideal}
   \uses{def:radical-ideal}
-  
+  \lean{Rad.IsPrime}
+  \leanok
   An ideal $\mathfrak{p} \in \mathrm{Rad}(R)$ is \emph{prime} if it is a prime element in the frame $\mathrm{Rad}(R)$.
   
   Equivalently: $\mathfrak{p}$ is prime if $\mathfrak{p} \neq R$ and whenever $fg \in \mathfrak{p}$, we have $f \in \mathfrak{p}$ or $g \in \mathfrak{p}$.
@@ -56,7 +61,8 @@
 \begin{lemma}[Primeness in the Frame]
   \label{lemma:prime-frame-criterion}
   \uses{def:prime-ideal, def:prime-frame-element}
-  
+  \lean{isPrime_iff_le_or_le}
+  \leanok
   A radical ideal $\mathfrak{p}$ is prime iff: $\mathfrak{p} \leq I \lor J \implies \mathfrak{p} \leq I \text{ or } \mathfrak{p} \leq J$ 
   for all radical ideals $I, J$.
 \end{lemma}
@@ -71,13 +77,17 @@
   This is the standard prime ideal criterion.
 \end{proof}
 
-\begin{theorem}[Prime Ideals as Specialization-Prime]
+\begin{theorem}[Frame-Primeness vs Ring-Primeness]
   \label{thm:prime-ideals-specialization}
   \uses{def:prime-ideal}
-  
-  A radical ideal $\mathfrak{p} \in \mathrm{Rad}(R)$ is prime iff $\mathfrak{p}$ is the set of elements that specialize to a fixed point 
-  in the topological spectrum (if we were to use points). Pointfree, this means $\mathfrak{p}$ is exactly the closure of the empty set 
-  in the principal filter $\uparrow \mathfrak{p}$.
+  \lean{frame_prime_ne_ring_prime}
+
+  Frame-theoretic primeness and ring-theoretic primeness are \textbf{dual} notions, not equivalent.
+  Frame-primeness (join-prime from below: $I \leq J \vee K \Rightarrow I \leq J$ or $I \leq K$) differs from
+  ring-primeness (meet-prime from above: $JK \subseteq I \Rightarrow J \subseteq I$ or $K \subseteq I$).
+
+  Counterexample: In $\mathbb{Z}/6\mathbb{Z}$, the zero ideal $(0)$ is frame-prime but not ring-prime
+  ($2 \cdot 3 = 0 \in (0)$ but $2, 3 \notin (0)$).
 \end{theorem}
 
 \begin{proof}
@@ -90,7 +100,8 @@
 \begin{definition}[Irreducible Locale]
   \label{def:irreducible-locale}
   \uses{def:locale}
-  
+  \lean{IsIrreducibleLocale}
+  \leanok
   A locale $X$ is \emph{irreducible} if the frame $\mathcal{O}(X)$ has no non-trivial prime elements... 
   wait, that doesn't seem right. Let me reconsider.
   
@@ -100,7 +111,8 @@
 \begin{definition}[Irreducible Scheme (Pointfree)]
   \label{def:irreducible-scheme}
   \uses{def:scheme-pointfree}
-  
+  \lean{Scheme.IsIrreducible}
+  \leanok
   A scheme $X$ is \emph{irreducible} if its underlying locale is irreducible, i.e., 
   the only way to write $\top = u \lor v$ (where $u, v$ are opens) is if $u = \top$ or $v = \top$.
 \end{definition}
