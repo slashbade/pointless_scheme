@@ -7,7 +7,8 @@ name = "PointlessScheme"
 
 [[require]]
 name = "mathlib"
-scope = "leanprover-community"
+git = "https://github.com/frenzymath/mathlib4.git"
+rev = "reap"
 
 [[require]]
 name = "checkdecls"
