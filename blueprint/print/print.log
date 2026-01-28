@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.11.29)  27 JAN 2026 17:15
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.11.29)  28 JAN 2026 14:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1009,19 +1009,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] (./content.tex (./chapters/foundational-locale-theory.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 7.
+(Font)              scaled to size 10.00107pt on input line 9.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 7.
+(Font)              scaled to size 7.00075pt on input line 9.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 7.
+(Font)              scaled to size 5.00053pt on input line 9.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 7.
+(Font)              scaled to size 9.99893pt on input line 9.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 7.
+(Font)              scaled to size 6.99925pt on input line 9.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 7.
+(Font)              scaled to size 4.99947pt on input line 9.
 
-Overfull \hbox (39.60658pt too wide) in paragraph at lines 50--51
+Overfull \hbox (39.60658pt too wide) in paragraph at lines 57--58
 []\TU/lmr/m/n/10 For joins: $[][][] [] [][][][][][] [][][] [] [][][][][][][][] 
 [][][][] [] [][][][][] [][][][][][][] [] [][] [][][][][][][][][][]$. 
  []
@@ -1039,60 +1039,76 @@ Chapter 2.
 [3
 
 ]
+Overfull \hbox (10.14708pt too wide) in paragraph at lines 138--142
+[]\TU/lmr/bx/n/10 Theorem 16 \TU/lmr/m/n/10 (Frame Distributivity of Radical Id
+eals)\TU/lmr/bx/n/10 . [][][][]\TU/lmr/m/it/10 The complete lattice $[][][][][]
+[] [][] [][] [][] [][] [][]$
+ []
+
+
 
 [4]
 
 [5]
 
-[6]
+[6]) (./chapters/functoriality.tex
 
-[7]) (./chapters/functoriality.tex
-
-[8]
+[7]
 Chapter 3.
 
 
-[9
+[8
 
 ]
 
+[9]) (./chapters/structure-sheaf.tex
+
 [10]
-
-[11]) (./chapters/structure-sheaf.tex
-
-[12]
 Chapter 4.
 
 
-[13
+[11
 
 ]
+Overfull \hbox (43.10863pt too wide) in paragraph at lines 73--78
+\TU/lmr/m/it/10 well-defined ring homomorphism. (Well-definedness is automatic 
+from using \TU/lmtt/m/it/10 IsLocalization.Away.lift\TU/lmr/m/it/10 .) 
+ []
 
-[14]
-Overfull \hbox (3.63016pt too wide) in paragraph at lines 141--143
+
+
+[12]
+Overfull \hbox (3.63016pt too wide) in paragraph at lines 148--150
 []\TU/lmr/m/n/10 We verify the equalizer condition. Let $[][][][][][][][]$ be a
  family of basic opens with $[][] [][][][][] []
  []
 
 ) (./chapters/locally-ringed-locale.tex
 
-[15]
+[13]
 Chapter 5.
+
+Overfull \hbox (20.71152pt too wide) in paragraph at lines 39--44
+[]\TU/lmr/bx/n/10 Definition 46 \TU/lmr/m/n/10 (Affine Scheme)\TU/lmr/bx/n/10 .
+ [][][][]\TU/lmr/m/n/10 An \TU/lmr/m/it/10 affine scheme \TU/lmr/m/n/10 is a lo
+cally ringed locale of the form $[][][][] [][][]$
+ []
+
+
+
+[14
+
+]) (./chapters/basic-properties.tex
+
+[15]
+Chapter 6.
 
 
 [16
 
-]) (./chapters/basic-properties.tex
-
-[17]
-Chapter 6.
-
-
-[18
-
 ]))
 
-[19]
+[17]
 (/Users/jiedongjiang/Documents/Work/AarhusWorkshop/pointless-scheme/blueprint/p
 rint/print.aux)
  ***********
@@ -1103,13 +1119,13 @@ Package rerunfilecheck Info: File `print.out' has not changed.
 (rerunfilecheck)             Checksum: 96BD1F2F367A455B1905A5358A700BD8;4404.
  ) 
 Here is how much of TeX's memory you used:
- 29731 strings out of 473832
- 603781 string characters out of 5729480
- 1171791 words of memory out of 5000000
- 52339 multiletter control sequences out of 15000+600000
- 564240 words of font info for 89 fonts, out of 8000000 for 9000
+ 29738 strings out of 473832
+ 603936 string characters out of 5729480
+ 1172791 words of memory out of 5000000
+ 52342 multiletter control sequences out of 15000+600000
+ 564256 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 116i,10n,121p,458b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,10n,121p,458b,446s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on /Users/jiedongjiang/Documents/Work/AarhusWorkshop/pointless-s
-cheme/blueprint/print/print.pdf (20 pages).
+cheme/blueprint/print/print.pdf (18 pages).
