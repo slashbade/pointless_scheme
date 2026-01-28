@@ -4,16 +4,19 @@
 
 \begin{definition}[Radical Ideal]
   \label{def:radical-ideal}
-  
-  An ideal $I \triangleleft R$ of a commutative ring $R$ is \emph{radical} if $I = \sqrt{I}$, where 
+  \lean{Ideal.IsRadical}
+  \leanok
+
+  An ideal $I \triangleleft R$ of a commutative ring $R$ is \emph{radical} if $I = \sqrt{I}$, where
   $$\sqrt{I} := \{x \in R : \exists n \geq 1, x^n \in I\}$$
   The set of all radical ideals of $R$ is denoted $\mathrm{Rad}(R)$.
 \end{definition}
 
 \begin{definition}[Order and Operations on Radical Ideals]
   \label{def:radical-ideal-operations}
+  \lean{PointlessScheme.RadicalIdeal}
   \uses{def:radical-ideal}
-  
+
   For radical ideals $I, J \in \mathrm{Rad}(R)$:
   \begin{enumerate}
     \item \textbf{Order:} $I \leq J :\iff I \subseteq J$ (set inclusion)
@@ -26,27 +29,31 @@
 
 \begin{lemma}[Intersection of Radical Ideals is Radical]
   \label{lemma:intersection-radical}
+  \lean{Ideal.IsRadical.inf}
+  \leanok
   \uses{def:radical-ideal}
-  
+
   If $I, J \in \mathrm{Rad}(R)$, then $I \cap J \in \mathrm{Rad}(R)$.
 \end{lemma}
 
 \begin{proof}
   Let $x \in \sqrt{I \cap J}$, so $x^n \in I \cap J$ for some $n \geq 1$.
-  
+
   Then $x^n \in I$ and $x^n \in J$.
-  
+
   Since $I$ is radical and $x^n \in I$, we have $x \in I$.
-  
+
   Since $J$ is radical and $x^n \in J$, we have $x \in J$.
-  
+
   Therefore $x \in I \cap J$, so $I \cap J$ is radical.
 \end{proof}
 
 \begin{corollary}[Arbitrary Intersections are Radical]
   \label{cor:arbitrary-intersection-radical}
+  \lean{Ideal.IsRadical.iInf}
+  \leanok
   \uses{lemma:intersection-radical}
-  
+
   If $(I_i)_{i \in I}$ is a family of radical ideals, then $\bigcap_{i \in I} I_i$ is radical.
 \end{corollary}
 
@@ -56,46 +63,48 @@
 
 \begin{lemma}[Join of Radical Ideals]
   \label{lemma:join-radical-ideals}
+  \lean{PointlessScheme.RadicalIdeal.sSup_eq}
   \uses{def:radical-ideal, def:radical-ideal-operations}
-  
+
   For a family $(I_i)_{i \in I}$ of radical ideals, $\sqrt{\sum_{i \in I} I_i}$ is the supremum in $\mathrm{Rad}(R)$.
 \end{lemma}
 
 \begin{proof}
   First, we verify that $\sqrt{\sum_i I_i} \in \mathrm{Rad}(R)$ by definition of radicals.
-  
+
   \textbf{Upper bound:} For each $j \in I$, we have $I_j \subseteq \sum_i I_i$ (obvious subset inclusion).
   Hence $\sqrt{I_j} \subseteq \sqrt{\sum_i I_i}$ (radical is monotone in set inclusion).
   Since $I_j$ is radical, $I_j = \sqrt{I_j}$, so $I_j \subseteq \sqrt{\sum_i I_i}$.
-  
+
   \textbf{Least upper bound:} Suppose $K$ is a radical ideal with $I_j \subseteq K$ for all $j$.
   Then $\sum_i I_i \subseteq K$ (sum of subsets is subset of their supremum).
   Therefore $\sqrt{\sum_i I_i} \subseteq \sqrt{K} = K$ (since $K$ is radical).
-  
+
   Thus $\sqrt{\sum_i I_i}$ is indeed the least upper bound.
 \end{proof}
 
 \begin{theorem}[Radical Ideals Form a Complete Lattice]
   \label{thm:radical-complete-lattice}
+  \lean{PointlessScheme.RadicalIdeal.instCompleteLattice}
   \uses{def:radical-ideal, def:radical-ideal-operations, cor:arbitrary-intersection-radical, lemma:join-radical-ideals}
-  
-  The structure $(\mathrm{Rad}(R), \leq, \land, \bigvee, \top, \bot)$ with operations as in \Cref{def:radical-ideal-operations} 
+
+  The structure $(\mathrm{Rad}(R), \leq, \land, \bigvee, \top, \bot)$ with operations as in \Cref{def:radical-ideal-operations}
   forms a complete lattice.
 \end{theorem}
 
 \begin{proof}
   We verify the complete lattice axioms:
-  
+
   \textbf{Partial Order:} Subset inclusion is reflexive, antisymmetric, and transitive.
-  
+
   \textbf{Completeness:} For any family $(I_i)_{i \in I}$ of radical ideals:
   \begin{enumerate}
     \item The infimum is $\bigcap_i I_i$, which is radical by \Cref{cor:arbitrary-intersection-radical}.
     \item The supremum is $\sqrt{\sum_i I_i}$, which is radical by \Cref{lemma:join-radical-ideals}.
   \end{enumerate}
-  
+
   \textbf{Top and Bottom:} $R$ is radical (trivially, as $\sqrt{R} = R$), and $\sqrt{(0)}$ is radical by definition.
-  
+
   The order relations hold: for any radical ideal $I$, we have $\bot = \sqrt{(0)} \subseteq I \subseteq R = \top$.
 \end{proof}
 
@@ -103,33 +112,36 @@
 
 \begin{lemma}[Product of Ideals and Radical]
   \label{lemma:product-radical-property}
+  \lean{Ideal.radical_mul}
+  \leanok
   \uses{def:radical-ideal}
-  
+
   For ideals $I, J \triangleleft R$:
   $$\sqrt{I \cdot J} = \sqrt{I \cap J}$$
 \end{lemma}
 
 \begin{proof}
   \textbf{Inclusion $\subseteq$:} Let $x \in \sqrt{I \cdot J}$, so $x^n = \sum_k a_k b_k$ where $a_k \in I$ and $b_k \in J$.
-  
-  We need to show $x^{2n} \in I \cap J$. 
-  
+
+  We need to show $x^{2n} \in I \cap J$.
+
   Note that $x^{2n} = (x^n)^2 = (\sum_k a_k b_k)^2 \in I \cdot J$ (expanding the square gives products of elements from $I$ and $J$).
-  
+
   More precisely, $(x^n)^2 = \sum_{k,\ell} a_k b_k a_\ell b_\ell$. Each term is in $I \cdot J$ (since $a_k, a_\ell \in I$ and $b_k, b_\ell \in J$).
-  
+
   Actually, we use the fact that $\sqrt{I \cdot J} = \sqrt{I + J}$ (a standard result), so $x \in \sqrt{I + J}$.
   Thus $x^m \in I + J$ for some $m$, which contains $x^m$ in the ideal generated by either $I$ or $J$.
-  
+
   Therefore $x \in \sqrt{I \cap J}$.
-  
+
   \textbf{Inclusion $\supseteq$:} If $x \in \sqrt{I \cap J}$, then $x^n \in I \cap J \subseteq I \cdot J$, so $x \in \sqrt{I \cdot J}$.
 \end{proof}
 
 \begin{theorem}[Frame Distributivity of Radical Ideals]
   \label{thm:radical-frame-distributivity}
+  \lean{PointlessScheme.RadicalIdeal.instFrame}
   \uses{def:radical-ideal, def:radical-ideal-operations, lemma:product-radical-property}
-  
+
   The complete lattice $(\mathrm{Rad}(R), \leq, \land, \bigvee, \top, \bot)$ satisfies the infinite distributive law:
   $$I \land \bigvee_{j \in J} K_j = \bigvee_{j \in J} (I \land K_j)$$
   for all $I \in \mathrm{Rad}(R)$ and all families $(K_j)_{j \in J}$ of radical ideals.
@@ -142,53 +154,54 @@
     \bigvee_j K_j &:= \sqrt{\sum_j K_j} \\
     I \land \bigvee_j K_j &:= I \cap \sqrt{\sum_j K_j}
   \end{align*}
-  
+
   We need to show:
   $$I \cap \sqrt{\sum_j K_j} = \sqrt{\sum_j (I \cap K_j)}$$
-  
-  \textbf{Right side is radical:} Since $I \cap K_j$ is radical for each $j$ (intersection of radicals), 
+
+  \textbf{Right side is radical:} Since $I \cap K_j$ is radical for each $j$ (intersection of radicals),
   and the radical of a sum of radical ideals is radical, the right side is radical.
-  
+
   \textbf{Inclusion $\subseteq$:} Let $x \in I \cap \sqrt{\sum_j K_j}$.
-  
+
   Then $x \in I$ and $x^n \in \sum_j K_j$ for some $n$.
-  
+
   Write $x^n = \sum_j y_j$ with $y_j \in K_j$.
-  
+
   Then:
   \begin{align*}
     x^{2n} &= (x^n)^2 = (\sum_j y_j)^2 = \sum_j y_j^2 + \sum_{j \neq k} y_j y_k
   \end{align*}
-  
+
   Each $y_j^2 \in K_j$ (as $K_j$ is an ideal). For cross terms, since $x \in I$ we have $x \cdot y_j y_k \in I$ as well.
-  
+
   More carefully: we have $x^n = \sum_j y_j$, so $x \cdot x^n = x^{n+1} = x \sum_j y_j = \sum_j x y_j$.
-  
+
   Since $x \in I$, each term $xy_j \in I$. Also $y_j \in K_j$, so $xy_j \in I \cap K_j$.
-  
+
   Therefore $x^{n+1} = \sum_j xy_j \in \sum_j (I \cap K_j)$, giving $x \in \sqrt{\sum_j(I \cap K_j)}$.
-  
+
   \textbf{Inclusion $\supseteq$:} Let $x \in \sqrt{\sum_j (I \cap K_j)}$.
-  
+
   Then $x^m \in \sum_j (I \cap K_j)$ for some $m$, so $x^m = \sum_j z_j$ with $z_j \in I \cap K_j$.
-  
+
   Then:
   \begin{align*}
     x^m &= \sum_j z_j \in \sum_j K_j \quad \text{(since } z_j \in K_j \text{)} \\
     x &\in \sqrt{\sum_j K_j}
   \end{align*}
-  
+
   Also, $z_j \in I$ for all $j$ means $x^m = \sum_j z_j \in I$ (as $I$ is an ideal).
-  
+
   Since $I$ is radical and $x^m \in I$, we have $x \in I$.
-  
+
   Therefore $x \in I \cap \sqrt{\sum_j K_j}$.
 \end{proof}
 
 \begin{corollary}[Radical Ideals Form a Frame]
   \label{cor:radical-frame}
+  \lean{PointlessScheme.RadicalIdeal.instFrame}
   \uses{thm:radical-complete-lattice, thm:radical-frame-distributivity}
-  
+
   The structure $\mathrm{Rad}(R)$ is a frame.
 \end{corollary}
 
@@ -196,8 +209,9 @@
 
 \begin{definition}[Basic Open Sets]
   \label{def:basic-open-set}
+  \lean{PointlessScheme.RadicalIdeal.basicOpen}
   \uses{def:radical-ideal}
-  
+
   For $f \in R$, define the \emph{basic open set} (in the Zariski locale):
   $$D(f) := \sqrt{(f)} \in \mathrm{Rad}(R)$$
   where $(f)$ is the principal ideal generated by $f$.
@@ -205,8 +219,10 @@
 
 \begin{lemma}[Basic Opens are Radical]
   \label{lemma:basic-open-radical}
+  \lean{Ideal.radical_isRadical}
+  \leanok
   \uses{def:basic-open-set}
-  
+
   For any $f \in R$, the ideal $D(f) = \sqrt{(f)}$ is radical.
 \end{lemma}
 
@@ -216,8 +232,9 @@
 
 \begin{lemma}[Properties of Basic Opens]
   \label{lemma:basic-open-properties}
+  \lean{PointlessScheme.RadicalIdeal.basicOpen_one, PointlessScheme.RadicalIdeal.basicOpen_zero, PointlessScheme.RadicalIdeal.basicOpen_mul, PointlessScheme.RadicalIdeal.basicOpen_pow}
   \uses{def:basic-open-set}
-  
+
   The basic opens satisfy:
   \begin{enumerate}
     \item $D(1) = \sqrt{(1)} = R = \top$
@@ -230,17 +247,17 @@
 \begin{proof}
   \begin{enumerate}
     \item $D(1) = \sqrt{(1)} = \sqrt{R} = R$ since the ideal generated by 1 is $R$.
-    
+
     \item $D(0) = \sqrt{(0)}$ is the set of all nilpotent elements, which is $\bot$ by definition.
-    
+
     \item We have:
     \begin{align*}
       D(fg) &= \sqrt{(fg)} \\
       D(f) \land D(g) &= D(f) \cap D(g) = \sqrt{(f)} \cap \sqrt{(g)}
     \end{align*}
-    By \Cref{lemma:product-radical-property}, $\sqrt{(f) \cdot (g)} = \sqrt{(f) \cap (g)}$. 
+    By \Cref{lemma:product-radical-property}, $\sqrt{(f) \cdot (g)} = \sqrt{(f) \cap (g)}$.
     But $(f)(g) = (fg)$, so $\sqrt{(fg)} = \sqrt{(f)\cap(g)} = \sqrt{(f)} \cap \sqrt{(g)}$.
-    
+
     \item For $n \geq 1$:
     \begin{align*}
       D(f^n) &= \sqrt{(f^n)} \\
@@ -248,23 +265,24 @@
       &\iff \exists m: x^m = rf^n \text{ for some } r \in R \\
       &\iff \exists m: (x^m)^{1/n} \approx rf \quad \text{(formally)}
     \end{align*}
-    
+
     More carefully: $x \in \sqrt{(f^n)}$ iff $x^m \in (f^n)$ for some $m$, i.e., $x^m = rf^n$.
-    
+
     Then $(x^m)^n = (rf^n)^n = r^n f^{n^2}$, so $x^{mn} = r^n f^{n^2} \in (f)$.
-    
+
     Conversely, $x \in \sqrt{(f)}$ means $x^k \in (f)$, so $x^k = sf$ for some $s, k$.
-    
+
     Then $(x^k)^n = s^n f^n \in (f^n)$, so $x^{kn} \in (f^n)$, giving $x \in \sqrt{(f^n)}$.
-    
+
     Therefore $\sqrt{(f)} = \sqrt{(f^n)}$.
   \end{enumerate}
 \end{proof}
 
 \begin{lemma}[Meet and Join of Basic Opens]
   \label{lemma:basic-open-meet-join}
+  \lean{PointlessScheme.RadicalIdeal.basicOpen_inf, PointlessScheme.RadicalIdeal.basicOpen_sup}
   \uses{def:basic-open-set, lemma:basic-open-properties}
-  
+
   \begin{enumerate}
     \item $D(f) \land D(g) = D(fg)$
     \item $D(f) \lor D(g) = \sqrt{D(f) + D(g)} = D(f) \lor D(g)$ (not generally a basic open)
@@ -274,50 +292,52 @@
 
 \begin{proof}
   Part (1) is \Cref{lemma:basic-open-properties} item (3).
-  
+
   Parts (2) and (3) follow from the definition of join in $\mathrm{Rad}(R)$ as $\sqrt{\sum_i D(f_i)}$.
 \end{proof}
 
 \begin{lemma}[Radical Membership and Basic Opens]
   \label{lemma:radical-membership-basic-open}
+  \lean{PointlessScheme.RadicalIdeal.basicOpen_le_iff}
   \uses{def:basic-open-set}
-  
+
   For $f \in R$ and $I \in \mathrm{Rad}(R)$:
   $$f \in \sqrt{I} \iff D(f) \subseteq I \iff D(f) \leq I$$
 \end{lemma}
 
 \begin{proof}
   Recall $D(f) = \sqrt{(f)}$.
-  
+
   $(\Rightarrow)$ If $f \in \sqrt{I}$, then $f^n \in I$ for some $n$.
-  
+
   For any $x \in D(f) = \sqrt{(f)}$, we have $x^m \in (f)$ for some $m$, so $x^m = rf$ for some $r$.
-  
+
   Then $x^{mn} = r^n f^n \in I$ (since $f^n \in I$ and $I$ is an ideal).
-  
+
   Since $I$ is radical, $x \in I$. Thus $D(f) \subseteq I$.
-  
+
   $(\Leftarrow)$ If $D(f) \subseteq I$, then since $1 \cdot f \in (f)$ we have $f \in D(f) \subseteq I$.
-  
+
   But $I$ is radical and $f \in I$, so... wait, we need $f^n \in I$ for some $n$.
-  
+
   Actually, $f \in D(f) = \sqrt{(f)}$ (taking $n=1$), so if $D(f) \subseteq I$ then $f \in I$.
-  
+
   Since $I$ is radical, $f \in I = \sqrt{I}$, so $f^1 \in I$, i.e., $f \in \sqrt{I}$.
 \end{proof}
 
 \begin{lemma}[Cover Criterion for Basic Opens]
   \label{lemma:cover-criterion-basic-opens}
+  \lean{PointlessScheme.RadicalIdeal.basicOpen_le_sSup_basicOpen_iff}
   \uses{def:basic-open-set, lemma:radical-membership-basic-open}
-  
+
   For $f \in R$ and a family $(g_i)_{i \in I}$ of elements of $R$:
   $$D(f) \leq \bigvee_i D(g_i) \iff f \in \sqrt{(g_i : i \in I)}$$
 \end{lemma}
 
 \begin{proof}
-  By \Cref{lemma:radical-membership-basic-open}, 
+  By \Cref{lemma:radical-membership-basic-open},
   $$D(f) \subseteq \sqrt{(g_i : i \in I)} \iff f \in \sqrt{\sqrt{(g_i : i \in I)}} = \sqrt{(g_i : i \in I)}$$
-  
+
   And $\sqrt{(g_i : i \in I)} = \bigvee_i D(g_i)$ by definition of join in $\mathrm{Rad}(R)$.
 \end{proof}
 
@@ -325,8 +345,9 @@
 
 \begin{theorem}[Frame Presentation of Spec(R)]
   \label{thm:zariski-frame-presentation}
+  \lean{PointlessScheme.ZariskiLocale.presentation}
   \uses{def:presented-frame, def:basic-open-set, lemma:basic-open-properties}
-  
+
   The Zariski frame of a commutative ring $R$ admits the presentation:
   $$\mathcal{O}(\mathrm{Spec}\, R) \cong \mathrm{Fr}\langle D(f) : f \in R \mid \mathcal{R} \rangle$$
   where the relations $\mathcal{R}$ are:
@@ -341,18 +362,18 @@
 
 \begin{proof}
   The frame $\mathrm{Rad}(R)$ is generated by the basic opens $\{D(f) : f \in R\}$ (we show this below).
-  
-  \textbf{Generators:} Any radical ideal $I$ can be written as $I = \sqrt{I}$ and $\sqrt{I} = \bigvee_{f \in I} D(f)$ 
+
+  \textbf{Generators:} Any radical ideal $I$ can be written as $I = \sqrt{I}$ and $\sqrt{I} = \bigvee_{f \in I} D(f)$
   (taking the join over all $f \in I$ gives $\sqrt{(f : f \in I)} = \sqrt{I}$).
-  
+
   \textbf{Relations:} The relations $\mathcal{R}$ hold in $\mathrm{Rad}(R)$ by \Cref{lemma:basic-open-properties}.
-  
-  \textbf{Presentation:} The universal property of presented frames (\Cref{lemma:universal-property-presented-frame}) 
-  gives a unique frame homomorphism from $\mathrm{Fr}\langle D(f) : f \in R \mid \mathcal{R} \rangle$ to $\mathrm{Rad}(R)$ 
+
+  \textbf{Presentation:} The universal property of presented frames (\Cref{lemma:universal-property-presented-frame})
+  gives a unique frame homomorphism from $\mathrm{Fr}\langle D(f) : f \in R \mid \mathcal{R} \rangle$ to $\mathrm{Rad}(R)$
   that sends generator $D(f)$ to the basic open $D(f)$.
-  
-  This homomorphism is surjective (by the above generator argument) and injective (relations in the presented frame 
+
+  This homomorphism is surjective (by the above generator argument) and injective (relations in the presented frame
   become equalities in $\mathrm{Rad}(R)$ by the relations in $\mathcal{R}$).
-  
+
   Therefore it is an isomorphism.
 \end{proof}
