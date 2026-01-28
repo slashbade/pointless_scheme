@@ -2,8 +2,6 @@ Order.Frame
 FrameHom
 Frm
 FrameHom.comp
-PointlessScheme.Frame.Presented
-PointlessScheme.Frame.Presented.lift
 Rad
 Rad.instLE
 Rad.instInf
@@ -25,6 +23,8 @@ Rad.basicOpen_inf
 Rad.mem_radical_iff_basicOpen_le
 Rad.cover_iff
 Rad.presentation
+Rad.radical_eq_sSup_basicOpen
+Rad.frameHom_eq_of_basicOpen_eq
 Ideal.map
 Rad.map
 Rad.map_isRadical
