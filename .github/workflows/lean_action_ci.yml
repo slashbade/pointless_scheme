@@ -33,8 +33,8 @@ jobs:
           sudo apt install graphviz -y
           ~/.elan/bin/lake exe graph website/file_deps.pdf
 
-      - name: Build project documentation
-        id: build-docgen
-        uses: leanprover-community/docgen-action@main
-        with:
-          blueprint: true
+      # - name: Build project documentation
+      #   id: build-docgen
+      #   uses: leanprover-community/docgen-action@main
+      #   with:
+      #     blueprint: true
