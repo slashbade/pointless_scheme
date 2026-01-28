@@ -33,6 +33,7 @@
 \end{lemma}
 
 \begin{proof}
+  \leanok
   The radical of any ideal is radical, by definition.
 \end{proof}
 
@@ -45,6 +46,7 @@
 \end{lemma}
 
 \begin{proof}
+  \leanok
   \begin{align*}
     \phi^*(R) &= \sqrt{\phi(R) \cdot S} \\
     &= \sqrt{S} \quad \text{(since } \phi(R) \text{ generates } S \text{ as an ideal)} \\
@@ -62,6 +64,7 @@
 \end{lemma}
 
 \begin{proof}
+  \leanok
   We have $I \land J = I \cap J$ for radical ideals. Thus:
   \begin{align*}
     \phi^*(I \cap J) &= \sqrt{\phi(I \cap J) \cdot S} \\
@@ -96,6 +99,7 @@
 \end{lemma}
 
 \begin{proof}
+  \leanok
   We have:
   \begin{align*}
     \phi^*(\bigvee_j I_j) &= \phi^*(\sqrt{\sum_j I_j}) \\
@@ -103,7 +107,7 @@
     &= \sqrt{(\sum_j \phi(I_j)) \cdot S} \\
     &= \sqrt{\sum_j (\phi(I_j) \cdot S)}
   \end{align*}
-  
+
   On the other hand:
   \begin{align*}
     \bigvee_j \phi^*(I_j) &= \bigvee_j \sqrt{\phi(I_j) \cdot S} \\
@@ -123,7 +127,8 @@
 \end{theorem}
 
 \begin{proof}
-  A frame homomorphism must preserve arbitrary joins and finite meets, which are verified by \Cref{lemma:preserve-arbitrary-joins} 
+  \leanok
+  A frame homomorphism must preserve arbitrary joins and finite meets, which are verified by \Cref{lemma:preserve-arbitrary-joins}
   and \Cref{lemma:preserve-finite-meets}. It must also preserve $\top$, verified by \Cref{lemma:preserve-top}.
 \end{proof}
 
@@ -139,6 +144,7 @@
 \end{lemma}
 
 \begin{proof}
+  \leanok
   For any $I \in \mathrm{Rad}(R)$:
   \begin{align*}
     (\mathrm{id}_R)^*(I) &= \sqrt{\mathrm{id}_R(I) \cdot R} \\
@@ -169,6 +175,7 @@
 \end{theorem}
 
 \begin{proof}
+  \leanok
   \textbf{Objects:} For each commutative ring $R$, we assign the locale $\mathrm{Spec}(R) := \mathrm{Rad}(R)$.
   
   \textbf{Morphisms:} For each ring homomorphism $\phi: R \to S$, the frame homomorphism 
