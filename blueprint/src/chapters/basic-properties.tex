@@ -83,7 +83,7 @@
   \label{thm:prime-ideals-specialization}
   \uses{def:prime-ideal}
   \lean{frame_prime_ne_ring_prime}
-
+  \leanok
   Frame-theoretic primeness and ring-theoretic primeness are \textbf{dual} notions, not equivalent.
   Frame-primeness (join-prime from below: $I \leq J \vee K \Rightarrow I \leq J$ or $I \leq K$) differs from
   ring-primeness (meet-prime from above: $JK \subseteq I \Rightarrow J \subseteq I$ or $K \subseteq I$).
@@ -93,8 +93,11 @@
 \end{theorem}
 
 \begin{proof}
-  This is a translation of the standard prime ideal property to the pointfree setting. Specialization in a locale is defined 
-  by the order relation in the frame.
+  \leanok
+  The counterexample is witnessed by $R = \mathbb{Z}/6\mathbb{Z}$ and $I = (0)$ (the nilradical).
+  The nilradical is frame-prime because $\bot \leq J \vee K$ implies $\bot \leq J$ or $\bot \leq K$ trivially.
+  However, the nilradical is not ring-prime because $2 \cdot 3 = 0 \in (0)$ but $2 \notin (0)$ and $3 \notin (0)$
+  (since neither $2$ nor $3$ is nilpotent in $\mathbb{Z}/6\mathbb{Z}$).
 \end{proof}
 
 \section{Irreducible Schemes}

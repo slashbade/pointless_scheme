@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Pointless Scheme Project
 -/
 import PointlessScheme.LocallyRingedLocale
+import Mathlib.Data.ZMod.Basic
 
 /-!
 # Basic Properties of Schemes
@@ -103,11 +104,72 @@ References:
     Blueprint: Theorem 6.7 (thm:prime-ideals-specialization) -/
 theorem frame_prime_ne_ring_prime :
     ∃ (R : Type) (_ : CommRing R) (I : Rad R), I.IsPrime ∧ ¬I.val.IsPrime := by
-  -- The existence is witnessed by ℤ/6ℤ and (0), but proving this
-  -- requires concrete computation. We document the mathematical fact.
-  -- For the formalization, we focus on the positive results about
-  -- the Zariski locale structure rather than this negative result.
-  sorry -- Documented: requires concrete ring ℤ/6ℤ computation
+  -- Witness: ℤ/6ℤ and ⊥ (the nilradical)
+  use ZMod 6, inferInstance, ⊥
+  constructor
+  · -- ⊥ is always frame-prime: ⊥ ≤ a ⊔ b → ⊥ ≤ a ∨ ⊥ ≤ b
+    -- Since ⊥ ≤ anything, both sides of the disjunction are trivially true
+    intro a b _
+    left
+    exact bot_le
+  · -- ⊥.val (the nilradical of ℤ/6ℤ = {0}) is not ring-prime
+    -- Because 2 * 3 = 0 in ℤ/6ℤ, but 2 ≠ 0 and 3 ≠ 0
+    intro hprime
+    -- In ℤ/6ℤ: 2 * 3 = 0
+    have h23 : (2 : ZMod 6) * 3 = 0 := by native_decide
+    -- 0 is in the nilradical (it's nilpotent: 0^1 = 0)
+    have h0_nil : (0 : ZMod 6) ∈ (⊥ : Rad (ZMod 6)).val := by
+      simp only [Rad.instBot]
+      -- 0 ∈ radical(⊥) ↔ ∃ n, 0^n ∈ ⊥
+      use 1
+      simp only [pow_one, Submodule.zero_mem]
+    -- Rewrite h23: 2 * 3 ∈ nilradical
+    have h23_nil : (2 : ZMod 6) * 3 ∈ (⊥ : Rad (ZMod 6)).val := by
+      rw [h23]; exact h0_nil
+    -- By primeness: 2 ∈ nilradical or 3 ∈ nilradical
+    have h_or := hprime.mem_or_mem h23_nil
+    -- But 2 and 3 are not nilpotent in ℤ/6ℤ
+    -- We prove this by showing 2^n and 3^n are never 0 for any n
+    have h2_not_nil : (2 : ZMod 6) ∉ (⊥ : Rad (ZMod 6)).val := by
+      simp only [Rad.instBot]
+      intro ⟨n, hn⟩
+      -- 2^n ∈ ⊥ means 2^n = 0 in ZMod 6
+      -- In ZMod 6, powers of 2 cycle: 2^1=2, 2^2=4, 2^3=2, ...
+      -- They never equal 0
+      simp only [Submodule.mem_bot] at hn
+      -- Need: 2^n ≠ 0 for any n
+      -- We handle the cases
+      rcases n with _ | n
+      · -- n = 0: 2^0 = 1 ≠ 0
+        exact (by native_decide : (1 : ZMod 6) ≠ 0) hn
+      · -- For n ≥ 1, 2^(n+1) mod 6 is either 2 or 4, never 0
+        have h : ∀ m : ℕ, (2 : ZMod 6) ^ (m + 1) = 2 ∨ (2 : ZMod 6) ^ (m + 1) = 4 := by
+          intro m
+          induction m with
+          | zero => left; rfl
+          | succ m ih =>
+            rcases ih with h2 | h4
+            · right; simp [pow_succ, h2]; native_decide
+            · left; simp [pow_succ, h4]; native_decide
+        rcases h n with h2 | h4
+        · rw [h2] at hn; exact (by native_decide : (2 : ZMod 6) ≠ 0) hn
+        · rw [h4] at hn; exact (by native_decide : (4 : ZMod 6) ≠ 0) hn
+    have h3_not_nil : (3 : ZMod 6) ∉ (⊥ : Rad (ZMod 6)).val := by
+      simp only [Rad.instBot]
+      intro ⟨n, hn⟩
+      simp only [Submodule.mem_bot] at hn
+      rcases n with _ | n
+      · -- n = 0: 3^0 = 1 ≠ 0
+        exact (by native_decide : (1 : ZMod 6) ≠ 0) hn
+      · -- For n ≥ 1, 3^(n+1) mod 6 is always 3, never 0
+        have h : ∀ m : ℕ, (3 : ZMod 6) ^ (m + 1) = 3 := by
+          intro m
+          induction m with
+          | zero => rfl
+          | succ m ih => simp [pow_succ, ih]; native_decide
+        rw [h n] at hn
+        exact (by native_decide : (3 : ZMod 6) ≠ 0) hn
+    exact h_or.elim h2_not_nil h3_not_nil
 
 /-! ### Irreducible Schemes -/
 

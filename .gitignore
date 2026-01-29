@@ -2,3 +2,9 @@
 .mcp.json
 .claude
 uv.lock
+
+# Blueprint build artifacts
+blueprint/web/
+blueprint/print/
+blueprint/src/web.paux
+blueprint/lean_decls
