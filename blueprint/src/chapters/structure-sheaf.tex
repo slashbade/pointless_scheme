@@ -5,6 +5,7 @@
 \begin{definition}[Sheaf on a Locale]
   \label{def:sheaf-locale}
   \lean{Sheaf}
+  \leanok
   Let $L$ be a frame (viewed as a category with objects being elements of $L$ and morphisms being
   the order relations $u \leq v$). A \emph{sheaf on $L$ with values in a category $\mathcal{C}$} is a 
   functor $\mathcal{F}: L^{\mathrm{op}} \to \mathcal{C}$ such that for every family $(u_i)_{i \in I}$ with $\bigvee_i u_i = u$:
@@ -72,6 +73,7 @@
   \label{lemma:restriction-maps-well-defined}
   \uses{def:structure-sheaf-zariski}
   \lean{Spec.sheaf_map_well_defined}
+  \leanok
   For $f \in \sqrt{(g)}$ (so $f^n = rg$), the map $\rho_{g,f}$ is a well-defined ring homomorphism.
   (Well-definedness is automatic from using \texttt{IsLocalization.Away.lift}.)
 \end{lemma}

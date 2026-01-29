@@ -503,6 +503,12 @@ noncomputable def structurePresheaf (X : AffineScheme) :
   obj I := @Spec.sheafExtend X.Ring X.instRing I
   ring I := @Spec.sheafExtend.instCommRing X.Ring X.instRing I
   map h := @Spec.sheafExtendRestrict X.Ring X.instRing _ _ h
+  map_id := by
+    -- Goal: sheafExtendRestrict (le_refl I) = RingHom.id (sheafExtend I)
+    -- Both sides give the identity function on sheafExtend
+    intro u
+    ext s
+    rfl
   map_comp h₁ h₂ := by
     -- Goal: (map h₁).comp (map h₂) = map (le_trans h₁ h₂)
     -- Both sides give the same function on sheafExtend
