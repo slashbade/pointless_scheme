@@ -5,7 +5,6 @@
 \begin{definition}[Sheaf on a Locale]
   \label{def:sheaf-locale}
   \lean{Sheaf}
-  \leanok
   Let $L$ be a frame (viewed as a category with objects being elements of $L$ and morphisms being
   the order relations $u \leq v$). A \emph{sheaf on $L$ with values in a category $\mathcal{C}$} is a 
   functor $\mathcal{F}: L^{\mathrm{op}} \to \mathcal{C}$ such that for every family $(u_i)_{i \in I}$ with $\bigvee_i u_i = u$:
@@ -73,13 +72,11 @@
   \label{lemma:restriction-maps-well-defined}
   \uses{def:structure-sheaf-zariski}
   \lean{Spec.sheaf_map_well_defined}
-  \leanok
   For $f \in \sqrt{(g)}$ (so $f^n = rg$), the map $\rho_{g,f}$ is a well-defined ring homomorphism.
   (Well-definedness is automatic from using \texttt{IsLocalization.Away.lift}.)
 \end{lemma}
 
 \begin{proof}
-  \leanok
   \textbf{Well-defined:} If $\frac{a}{g^k} = \frac{a'}{g^{k'}}$ in $R_g$ (i.e., $g^m(a g^{k'} - a' g^k) = 0$ for some $m$),
   we need to show $\frac{ar^k}{f^{nk}} = \frac{a'r^k}{f^{nk'}}$ in $R_f$.
   
@@ -133,6 +130,7 @@
   \label{def:structure-sheaf-radical-ideals}
   \uses{def:structure-sheaf-zariski, def:radical-ideal}
   \lean{Spec.sheafExtend}
+  \leanok
   For a radical ideal $I \in \mathrm{Rad}(R)$, extend the structure sheaf by:
   $$\mathcal{O}_{\mathrm{Spec} R}(I) := \lim_{f \in I} R_f$$
   the inverse limit of localizations as $f$ ranges over $I$.
